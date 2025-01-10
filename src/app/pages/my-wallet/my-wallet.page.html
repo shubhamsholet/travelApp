@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Wallet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="userDataLength > 0">
+  <ion-grid class="main-content ion-no-margin">
+    <div class="features-box">
+      <div class="photo">
+        <ion-avatar slot="start">
+          <img [src]="currentUser.profilePicture" alt="User Photo" />
+        </ion-avatar>
+        <div class="detail">
+          <!-- <ion-card-title color="light">{{ userData?.userName }}</ion-card-title> -->
+          <ion-card-title color="light">{{currentUser.userName}}</ion-card-title>
+          <ion-card-subtitle color="light">
+            {{ currentUser?.isSocialLogin ? 'Social Login' : 'Regular User' }}
+          </ion-card-subtitle>
+        </div>
+      </div>
+      <ion-card class="balance-card-container">
+        <ion-row>
+          <ion-col size="12" class="balance-card">
+            <h4>Main balance</h4>
+            <h1 class="rupiya-icon"><img src="../../../assets/images/svgs/rupiya.svg" alt="">{{
+              mybalance
+              }}
+            </h1>
+
+            <ion-grid class="actions">
+              <ion-row>
+                <ion-col class="action" (click)="topUp()">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2 12.6667H14V14H2V12.6667ZM8.66667 8.78137L12.714 4.73337L13.6567 5.67604L8 11.3334L2.34333 5.67671L3.286 4.73337L7.33333 8.78004V1.33337H8.66667V8.78137Z"
+                      fill="white" />
+                  </svg>
+                  <p class="ion-no-margin">Top up</p>
+                </ion-col>
+                <ion-col class="action" (click)="withdraw()">
+
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2 12.6667H14V14H2V12.6667ZM8.66667 3.88537V11.3334H7.33333V3.88537L3.286 7.93337L2.34333 6.99071L8 1.33337L13.6567 6.99004L12.714 7.93271L8.66667 3.88671V3.88537Z"
+                      fill="white" />
+                  </svg>
+
+                  <p class="ion-no-margin">Withdraw</p>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+
+    <div class="ion-fx ion-justify-content-between ion-padding-top">
+      <h4>Latest Transactions</h4>
+      <p class="viewall text-gray" (click)="goToWalletHistory()">View all</p>
+
+    </div>
+
+    <div *ngFor="let transaction of selectedTransactions; let i = index" (click)="walletToRecipt(i)">
+      <ion-row>
+        <ion-col size="12">
+          <ion-list class="ion-no-margin ion-no-padding">
+            <ion-item class="ion-no-padding transaction-card">
+              <ng-container *ngIf="transaction.type === 'credit'; else debitIcon">
+                <div class="svgbg"> <img src="../../../../assets/images/svgs/credit.svg" alt="Credit"
+                    class="credit-icon"></div>
+              </ng-container>
+              <ng-template #debitIcon>
+                <div class="svgbg">
+                  <img src="../../../../assets/images/svgs/debit.svg" alt="Debit" class="debit-icon">
+                </div>
+              </ng-template>
+              <!-- <ion-icon name="cash" class="ion-padding-end"></ion-icon> -->
+              <ion-label class="ion-no-padding ion-padding-start">
+                <h3>{{ currentUserData.userName }}</h3>
+                <!-- <p>{{ transaction.date | slice:0:24 }}</p> -->
+                <p>{{ transaction.date | date:'dd MMM, yyyy, h:mm a' }}</p>
+              </ion-label>
+              <ion-text class="ion-padding-end">
+                <!-- {{ transaction.type === 'credit' ? '+ ' : '- ' }} -->
+                ₹ {{
+                transaction.amount.toFixed(2) }}
+              </ion-text>
+              <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.78132 4.99999L0.481323 1.69999L1.42399 0.757324L5.66666 4.99999L1.42399 9.24266L0.481323 8.29999L3.78132 4.99999Z"
+                  fill="#535D66" />
+              </svg>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>
+
+<ion-content *ngIf="currentUser.length === 0">
+  <h2>No Data found</h2>
+</ion-content>

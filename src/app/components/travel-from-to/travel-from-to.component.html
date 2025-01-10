@@ -1,0 +1,24 @@
+<div class="main">
+  <ion-col size="12" sizeLg="6" class="ion-padding-top ride-box">
+    <div class="input-wrapper">
+      <img src="../../../assets/images/svgs/location.svg" class="icon" />
+
+      <ion-input type="text" placeholder="Trip Start" [(ngModel)]="from" [id]="fromId" required
+        (ngModelChange)="fromLocation(fromId)"></ion-input>
+    </div>
+  </ion-col>
+
+  <div class="togg-btn">
+    <button type="button" class="togg-btn-1" (click)="swapLocations()">
+      <img class="img-1" src="../../../assets/images/svgs/swap.svg" />
+    </button>
+  </div>
+  <ion-col size="12" sizeLg="6" class="ion-padding-top ride-box">
+    <div class="input-wrapper">
+      <img src="../../../assets/images/svgs/round.svg" class="icon" />
+
+      <ion-input type="text" placeholder="Trip End" [(ngModel)]="to" [id]="toId" required
+        (ngModelChange)="toLocation(toId)"></ion-input>
+    </div>
+  </ion-col>
+</div>

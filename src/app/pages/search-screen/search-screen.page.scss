@@ -1,0 +1,273 @@
+::ng-deep .input-fill-outline.sc-ion-input-md-h .input-wrapper.sc-ion-input-md {
+    border-bottom: none;
+    background: #ddf7f7b3;
+}
+
+ion-datetime-button::part(button) {
+    --padding-left: 5rem !important;
+    --background: #000;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0rem;
+    padding-bottom: 0rem;
+    margin: auto;
+    max-width: 370px;
+
+
+    .para-box {
+        padding: 0 1rem;
+    }
+
+}
+
+
+.main-1 {
+    margin: 1rem;
+}
+
+.main-2 {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.flex-box {
+    display: flex;
+    border-radius: 19px;
+    align-items: center;
+    padding-left: 1rem;
+    color: black;
+}
+
+.counter-input {
+    padding: 1rem;
+
+}
+
+
+.counter-input:nth-child(3) {
+    border-right: 2px solid #BAD4DA;
+}
+
+button.btn-btn {
+    border-radius: 12px;
+    color: black;
+    width: fit-content;
+    background: rgba(221, 247, 247, 0.7019607843);
+    border: 2px solid #BAD4DA;
+    flex-basis: 26rem;
+    flex-grow: 1;
+
+}
+
+.flex-box {
+    padding-left: 1rem;
+    justify-content: space-around;
+}
+
+.btn-box {
+    .login {
+        --background: #33A05E;
+        --border-radius: 50px;
+        text-transform: capitalize;
+        height: 3rem;
+        font-size: 19px;
+        font-weight: 600;
+        margin: auto;
+    }
+
+}
+
+.sc-ion-input-md-h {
+    min-height: 0px;
+    padding: 0 !important;
+}
+
+button.togg-btn-1 {
+    display: flex;
+    background: transparent;
+    position: relative;
+    top: -1.3rem;
+    float: right;
+    right: 0rem;
+}
+
+::ng-deep .input-bottom.sc-ion-input-md {
+    border-top: none !important;
+
+}
+
+.date,
+.time {
+    border: 2px solid #BAD4DA;
+    padding: 0.6rem;
+    padding-left: 0rem;
+    padding-right: 1rem;
+    border-radius: 15px;
+    color: black;
+    position: relative;
+    background: rgba(221, 247, 247, 0.7019607843);
+}
+
+.time {
+    padding-left: 0.6rem;
+}
+
+.date::before,
+.time::before {
+    content: "\1F4C5";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    color: #3498db;
+    pointer-events: none;
+}
+
+.time::before {
+    content: "\1F554";
+}
+
+
+
+
+button.btn-btn {
+    width: 100%;
+    margin-top: 0.7rem;
+}
+
+.togg-btn {
+    border-bottom: 2px solid #BAD4DA;
+    ;
+}
+
+.counter-input {
+    padding: 1rem;
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+}
+
+::ng-deep .input-highlight.sc-ion-input-md {
+    border-bottom: none;
+    background: transparent !important;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+    text-align: center;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#errorHere {
+    color: red;
+    padding: 0;
+}
+
+::ng-deep {
+    .addPassanger {
+        --backdrop-opacity: 0.5 !important;
+        --border-radius: 8px;
+        backdrop-filter: blur(5px);
+
+        .modalCont {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+
+.seatAvl {
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+
+    input {
+        background-color: transparent;
+        text-align: left;
+        max-width: 65px !important;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    ion-button {
+        --background: transparent;
+        --box-shadow: none;
+        color: black;
+    }
+
+    .decBtn {
+        border-right: 4px solid white;
+    }
+
+}
+
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+.formInput {
+    border: 2px solid #BAD4DA;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 15px;
+    color: black;
+    background: rgba(221, 247, 247, 0.7019607843);
+
+    input {
+        background-color: transparent;
+        max-width: -webkit-fill-available;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+}

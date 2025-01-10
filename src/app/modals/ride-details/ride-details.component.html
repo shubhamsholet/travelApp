@@ -1,0 +1,151 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Ride Details </ion-title>
+    <ion-button slot="end" color="none" class="shadow-none" (click)="close()">
+      <ion-icon name="close" color="dark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-item lines="none">
+      <div class="journey-box">
+        <p class="date">{{ dateFormat("2024/08/07") }}</p>
+
+        <div class="ion-flex ion-align-item-start ion-padding-bottom">
+          <svg class="svg-icon" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.875 8.3125C9.875 8.94239 9.62478 9.54648 9.17938 9.99188C8.73398 10.4373 8.12989 10.6875 7.5 10.6875C6.87011 10.6875 6.26602 10.4373 5.82062 9.99188C5.37522 9.54648 5.125 8.94239 5.125 8.3125C5.125 7.68261 5.37522 7.07852 5.82062 6.63312C6.26602 6.18772 6.87011 5.9375 7.5 5.9375C8.12989 5.9375 8.73398 6.18772 9.17938 6.63312C9.62478 7.07852 9.875 7.68261 9.875 8.3125Z"
+              stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M13.4375 8.3125C13.4375 13.9666 7.5 17.2188 7.5 17.2188C7.5 17.2188 1.5625 13.9666 1.5625 8.3125C1.5625 6.73778 2.18806 5.22755 3.30155 4.11405C4.41505 3.00056 5.92528 2.375 7.5 2.375C9.07472 2.375 10.5849 3.00056 11.6984 4.11405C12.8119 5.22755 13.4375 6.73778 13.4375 8.3125Z"
+              stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <p class="startLocation ion-no-margin">
+            {{ userData.from }}
+          </p>
+        </div>
+        <div class="ion-flex ion-no-margin ion-align-item-start">
+          <svg class="svg-icon" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13 8.5C13 9.95869 12.4205 11.3576 11.3891 12.3891C10.3576 13.4205 8.95869 14 7.5 14C6.04131 14 4.64236 13.4205 3.61091 12.3891C2.57946 11.3576 2 9.95869 2 8.5C2 7.04131 2.57946 5.64236 3.61091 4.61091C4.64236 3.57946 6.04131 3 7.5 3C8.95869 3 10.3576 3.57946 11.3891 4.61091C12.4205 5.64236 13 7.04131 13 8.5Z"
+              stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path
+              d="M9.875 8.375C9.875 9.00489 9.62478 9.60898 9.17938 10.0544C8.73398 10.4998 8.12989 10.75 7.5 10.75C6.87011 10.75 6.26602 10.4998 5.82062 10.0544C5.37522 9.60898 5.125 9.00489 5.125 8.375C5.125 7.74511 5.37522 7.14102 5.82062 6.69562C6.26602 6.25022 6.87011 6 7.5 6C8.12989 6 8.73398 6.25022 9.17938 6.69562C9.62478 7.14102 9.875 7.74511 9.875 8.375Z"
+              stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="endLocation">{{ userData.to }}</span>
+        </div>
+
+        <div class="journey-time">
+          <p>
+            <span class="startTime time">{{ userData.time }}</span>
+          </p>
+          <p>
+            <ion-col class="ion-text-center timeSection">
+              <div class="totalTimeTakloseenArea">
+                <div class="timeBox">
+                  {{ userData.duration }}
+                </div>
+
+                <div class="arrowIcon">
+                  <svg viewBox="0 0 68 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M62.3828 1.71362L66.4496 6.41817M66.4496 6.41817L62.3828 11.1227M66.4496 6.41817H0.839233"
+                      stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </ion-col>
+          </p>
+          <p>
+            <span class="endTime time">{{calculateEndTime(userData) }}</span>
+          </p>
+        </div>
+      </div>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label>Total Price of {{ userData["seatAvl"] }} passengers</ion-label>
+      <ion-note slot="end">
+        <!-- ₹ ({{userData['price']}}*{{userData['seatAvl']}}) -->
+        <button class="totalprice">₹ {{ calculateTotalPrice() }}</button>
+      </ion-note>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item lines="none">
+      <ion-label>
+        <h2>{{ userData.name }}</h2>
+        <p class="svg-container">
+          <svg width="1.5rem" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M8.99002 2.675C9.36336 1.7775 10.6367 1.7775 11.01 2.675L12.745 6.84667L17.2484 7.20833C18.2184 7.28583 18.6117 8.49583 17.8725 9.12917L14.4417 12.0683L15.4892 16.4625C15.715 17.4092 14.6859 18.1567 13.8559 17.65L10 15.295L6.14419 17.65C5.31419 18.1567 4.28502 17.4083 4.51086 16.4625L5.55836 12.0683L2.12752 9.12917C1.38836 8.49583 1.78169 7.28583 2.75169 7.20833L7.25502 6.84667L8.99002 2.675Z"
+              fill="#BAD4DA" />
+          </svg>{{ userData["rating"] }}/5 - 1 rating
+        </p>
+      </ion-label>
+      <div class="user-img"><img src="../../../assets/icon/user.png" /></div>
+    </ion-item>
+    <ion-list class="text-gray">
+      <ion-item lines="" class="ion-no-padding">
+        <img src="./assets/images/svgs/verified.svg" alt="" />
+        <ion-label class="ion-padding-start">Verified Profile</ion-label>
+      </ion-item>
+      <ion-item lines="" class="ion-no-padding">
+        <img src="./assets/images/svgs/verified.svg" alt="" />
+        <ion-label class="ion-padding-start">Rarely cancels rides</ion-label>
+      </ion-item>
+      <ion-item lines="" class="ion-no-padding">
+        <img src="./assets/images/svgs/verified.svg" alt="" />
+        <ion-label class="ion-padding-start">Contact Devil</ion-label>
+      </ion-item>
+      <ion-item lines="" class="ion-no-padding">
+        <img src="./assets/images/svgs/verified.svg" alt="" />
+        <ion-label class="ion-padding-start">No smoking</ion-label>
+      </ion-item>
+      <ion-item lines="" class="ion-no-padding">
+        <img src="./assets/images/svgs/verified.svg" alt="" />
+        <ion-label class="ion-padding-start">No pets</ion-label>
+      </ion-item>
+      <ion-item lines="none" class="ion-no-padding">
+        <img src="./assets/images/svgs/verified.svg" alt="" />
+        <ion-label class="ion-padding-start">Rarely cancels rides</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-card>
+    <ion-item lines="none">
+      <!-- <ion-icon name="car-outline" slot="start"></ion-icon> -->
+      <ion-label>MARUTI SWIFT <span class="text-gray">(Grey)</span></ion-label>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_92_1257)">
+          <path
+            d="M7.30077 6.16C6.41542 6.16 5.57135 6.53924 4.98311 7.20126L1.31139 11.3313C0.522301 11.7977 -0.00602507 12.6485 -0.0131371 13.6128L-0.0393843 17.3283C-0.0460875 18.2454 0.706351 19.0053 1.62312 19.0061L2.84374 19.0072C2.93599 19.6509 3.19342 20.2733 3.64109 20.7769C4.21039 21.4173 5.08666 21.84 6.16 21.84C7.81921 21.84 9.14441 20.6018 9.41171 19.0159L18.573 19.028C18.6689 19.6617 18.8799 20.2806 19.3211 20.7769C19.8904 21.4173 20.7667 21.84 21.84 21.84C23.4986 21.84 24.8817 20.6228 25.1497 19.0378L26.3605 19.0389C27.2588 19.0398 28 18.2999 28 17.4016V14.2308C28 12.8588 27.001 11.6796 25.6473 11.4538L20.79 10.6444L18.4023 7.23188C17.9322 6.5601 17.1626 6.16001 16.3428 6.16001L7.30077 6.16ZM7.30077 7.28H11.76V10.64H5.00498L3.22655 10.8631L5.81983 7.945C6.19591 7.52174 6.73459 7.28 7.30077 7.28ZM12.88 7.28H16.3428C16.7987 7.28 17.2235 7.50074 17.4847 7.87391L19.4206 10.64H12.88L12.88 7.28ZM6.15998 16.24C7.40374 16.24 8.39998 17.2363 8.39998 18.48C8.39998 19.7238 7.40374 20.72 6.15998 20.72C5.36665 20.72 4.84293 20.4427 4.47889 20.0331C4.11486 19.6236 3.91998 19.0556 3.91998 18.48C3.91998 17.9044 4.11486 17.3364 4.47889 16.9269C4.84293 16.5173 5.36665 16.24 6.15998 16.24ZM21.84 16.24C23.0837 16.24 24.08 17.2363 24.08 18.48C24.08 19.7238 23.0837 20.72 21.84 20.72C21.0466 20.72 20.5229 20.4427 20.1589 20.0331C19.7949 19.6236 19.6 19.0556 19.6 18.48C19.6 17.9044 19.7949 17.3364 20.1589 16.9269C20.5229 16.5173 21.0467 16.24 21.84 16.24Z"
+            fill="#BAD4DA" />
+        </g>
+        <defs>
+          <clipPath id="clip0_92_1257">
+            <rect width="28" height="28" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </ion-item>
+  </ion-card>
+  <div class="search-btn">
+    <button class="lst-bnt ">
+      Book
+      <svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 19.7638L9.99351 10.7452L1 1.72663" stroke="white" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button>
+    <!-- <ion-button class="book-btn" expand="">
+      <span> Book </span><svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 19.7638L9.99351 10.7452L1 1.72663" stroke="white" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </ion-button> -->
+  </div>
+</ion-content>

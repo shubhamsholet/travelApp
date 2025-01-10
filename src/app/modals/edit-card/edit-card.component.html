@@ -1,0 +1,263 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> {{ addVehicleClicked === true ? 'Add Vehicle details' : 'Edit Profile' }}</ion-title>
+    <ion-button slot="end" color="none" class="shadow-none" (click)="close()">
+      <ion-icon name="close" color="dark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="ion-padding" *ngIf="!addVehicleClicked">
+    <ion-row>
+      <ion-col>
+        <ion-title class="ion-no-padding"> Edit personal details </ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="email" label="Email" fill="outline" labelPlacement="stacked" placeholder="Enter your Email"
+          [(ngModel)]="data.userEmail" #email="ngModel" name="email" required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" (ngModelChange)="isEmailTouched = true">
+        </ion-input>
+        <div class="error-text" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors?.['required']">This field is required.</div>
+          <div *ngIf="email.errors?.['pattern']">
+            Please provide a valid email
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="text" label="Name" fill="outline" labelPlacement="stacked" placeholder="Enter your Name"
+          [(ngModel)]="data.userName" name="name" required (ngModelChange)="isNameTouched = true">
+        </ion-input>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="phone" label="Phone" fill="outline" labelPlacement="stacked" placeholder="Enter your phone"
+          [(ngModel)]="data.phone" #mobile="ngModel" name="mobile" placeholder="Enter your Mobile" required
+          minlength="10" maxlength="10" (ngModelChange)="isPhoneTouched = true">
+        </ion-input>
+        <div class="error-text" *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+          <div *ngIf="mobile.errors?.['required']">This field is required.</div>
+          <div *ngIf="mobile.errors?.['minlength']">
+            Minimum length is 10 characters.
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-select label="Gender" fill="outline" labelPlacement="stacked" interface="popover"
+          placeholder="Select Gender" justify="space-between" [(ngModel)]="data.gender" #gender="ngModel" name="gender"
+          (ngModelChange)="isGenderTouched = true">
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="others">Others</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-toggle justify="space-between" [enableOnOffLabels]="true" (click)="togglePassChange()">
+          Change Password
+        </ion-toggle>
+      </ion-col>
+      @if (changePass) { @if (data.isSocialLogin === false) {
+      <!-- <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="password" fill="outline" label="Current Password" labelPlacement="stacked"
+          [(ngModel)]="data.password" #password="ngModel" name="password" placeholder="Enter your password" required
+          minlength="6">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <div class="error-text" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors?.['required']">
+            This field is required.
+          </div>
+          <div *ngIf="password.errors?.['minlength']">
+            Minimum length is 6 characters.
+          </div>
+        </div>
+      </ion-col> -->
+      }
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="password" fill="outline" label="Password" labelPlacement="stacked" [(ngModel)]="data.password"
+          #password="ngModel" name="password" placeholder="Enter your password" required minlength="6">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <div class="error-text" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors?.['required']">
+            This field is required.
+          </div>
+          <div *ngIf="password.errors?.['minlength']">
+            Minimum length is 6 characters.
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="password" fill="outline" label="Confirm Password" labelPlacement="stacked"
+          [(ngModel)]="data.cpassword" #cpassword="ngModel" name="cpassword" placeholder="Enter password again" required
+          (input)="validatePassword()" (ngModelChange)="isPassTouched = true">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <div class="error-text" *ngIf="cpassword.invalid && (cpassword.dirty || cpassword.touched)">
+          <div *ngIf="cpassword.errors?.['required']">
+            This field is required.
+          </div>
+        </div>
+        <div class="error-text" *ngIf="passCheck">Passwords do not match.</div>
+      </ion-col>
+      }
+    </ion-row>
+  </ion-card>
+  <!--  -->
+  <ion-card class="ion-padding" *ngIf="!addVehicleClicked">
+    <ion-row>
+      <ion-col>
+        <ion-title class="ion-no-padding"> Verify docs </ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-select label="Govt. document type" fill="outline" labelPlacement="stacked" interface="popover"
+          placeholder="Select Doc Type" justify="space-between" [(ngModel)]="data.docType" #docType="ngModel"
+          name="docType" required>
+          <ion-select-option value="Adhaar Card">Adhaar Card</ion-select-option>
+          <ion-select-option value="Pen Card">Pen Card</ion-select-option>
+          <ion-select-option value="Others">Others</ion-select-option>
+        </ion-select>
+        <div class="error-text" *ngIf="docType.invalid && (docType.dirty || docType.touched)">
+          <div *ngIf="docType.errors?.['required']">
+            This field is required.
+          </div>
+        </div>
+      </ion-col>
+
+
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="file" label="Verify your Govt. ID" fill="outline" labelPlacement="stacked"
+          placeholder="Upload Doc" name="govtDocs" required (input)="onFileSelected($event)"
+          (change)="onDocumentUpload($event)">
+        </ion-input>
+        <div class="error-text" *ngIf="checkDocs === false && userRole === 'driver'">
+          <div>This field is required for <strong>drivers</strong>.</div>
+        </div>
+
+        <!-- File Preview -->
+        <div *ngIf="data.govtDocs?.url">
+          <h4>File Preview:</h4>
+
+          <!-- Image Preview -->
+          <div *ngIf="data.govtDocs?.fileDetails.type.startsWith('image/')">
+            <img [src]="data.govtDocs?.url" alt="File Preview" style="max-width: 100%" />
+          </div>
+
+          <!-- PDF Preview -->
+          <div *ngIf="data.govtDocs?.fileDetails.type === 'application/pdf'">
+            <iframe [src]="data.govtDocs?.url" width="100%" height="600px"></iframe>
+          </div>
+
+          <!-- Other Document Previews (e.g., .docx, .txt) -->
+          <div *ngIf="
+              data.govtDocs?.fileDetails.type !== 'image/' &&
+              data.govtDocs?.fileDetails.type !== 'application/pdf'
+            ">
+            <a [href]="data.govtDocs?.url" download="{{ data.govtDocs?.fileDetails.name }}">Download {{
+              data.govtDocs?.fileDetails.name }}</a>
+          </div>
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-card>
+
+  <!--  -->
+  <ion-card class="ion-padding" *ngIf="addVehicleClicked">
+    <ion-row>
+      <ion-col>
+        <ion-title class="ion-no-padding"> Vehicle details </ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-select label="Vehicle Type" fill="outline" labelPlacement="stacked" interface="popover"
+          placeholder="Select Vehicle Type" justify="space-between" [(ngModel)]="vehicle.vehicleDetails.vehicleType"
+          #vehicleType="ngModel" name="vehicleType" required>
+          <ion-select-option value="Car">Car</ion-select-option>
+          <ion-select-option value="Bus">Bus</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="text" label="Vehicle Name" fill="outline" labelPlacement="stacked"
+          placeholder="Enter your vehicle name" [(ngModel)]="vehicle.vehicleDetails.vehicleName" name="vehicleName"
+          (ngModelChange)="vehicle.vehicleDetails.vehicleName = $event.toUpperCase()" required>
+        </ion-input>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="text" label="Vehicle Number" fill="outline" labelPlacement="stacked"
+          placeholder="Enter your vehicle number" [(ngModel)]="vehicle.vehicleDetails.vehicleNumber"
+          (ngModelChange)="vehicle.vehicleDetails.vehicleNumber = $event.toUpperCase()" name="vehicleNumber" required>
+        </ion-input>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="text" label="Vehicle Color" fill="outline" labelPlacement="stacked"
+          placeholder="Enter your vehicle Color" [(ngModel)]="vehicle.vehicleDetails.vehicleColor" name="vehicleColor"
+          (ngModelChange)="vehicle.vehicleDetails.vehicleColor = capitalizeFirstLetter($event)" required>
+        </ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <!--  -->
+  <ion-card class="ion-padding" *ngIf="!addVehicleClicked">
+    <ion-row>
+      <ion-col>
+        <ion-title class="ion-no-padding"> About you </ion-title>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-input type="text" label="Mini Bio" fill="outline" labelPlacement="stacked"
+          placeholder="Enter your mini bio" [(ngModel)]="about.miniBio" name="miniBio" required
+          (ngModelChange)="isAboutTouched = true">
+        </ion-input>
+      </ion-col>
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-select label="Preferences" fill="outline" labelPlacement="stacked" interface="popover"
+          placeholder="Select Preferences" justify="space-between" [(ngModel)]="about.travelPreference"
+          #travelPreference="ngModel" name="travelPreference" multiple="true" (ngModelChange)="isPrefTouched = true">
+          <ion-select-option value="smoker">Smoker</ion-select-option>
+          <ion-select-option value="nonSmoker">Non-Smoker</ion-select-option>
+          <hr />
+          <ion-select-option value="male">Male</ion-select-option>
+          <ion-select-option value="female">Female</ion-select-option>
+          <ion-select-option value="others">Others</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
+<ion-footer class="ion-padding-horizontal">
+  <ion-row class="py-4">
+    <ion-col>
+      <ion-button *ngIf="addVehicleClicked" class="success" expand="block" (click)="updateData()"
+        [disabled]="!vehicleDetailsAuth()">
+        <span> Add </span>
+      </ion-button>
+
+      <div *ngIf="!addVehicleClicked">
+        <ion-button class="success" expand="block" (click)="updateData()" [disabled]="!onFieldChange()">
+          <span> Update </span>
+        </ion-button>
+      </div>
+
+      <!-- <ion-button *ngIf=" !addVehicleClicked" class="success" expand="block" (click)="updateData()">
+          <span> Update </span>
+        </ion-button> -->
+      <!-- <ion-button #template class="success" expand="block" (click)="updateData()">
+        <span> Update </span>
+      </ion-button> -->
+
+    </ion-col>
+    <ion-col>
+      <ion-button class="danger" expand="block" (click)="close()">
+        <span>Cancel</span>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

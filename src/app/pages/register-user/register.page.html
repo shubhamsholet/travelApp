@@ -1,0 +1,128 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form autocomplete="on" #registerUserForm="ngForm" (ngSubmit)="onSubmit(registerUserForm)">
+    <ion-row class="ion-margin">
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-title class="ion-no-padding">Create Your Account</ion-title>
+      </ion-col>
+
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input label="Name" fill="outline" labelPlacement="stacked" [(ngModel)]="userData.userName" #name="ngModel"
+          name="name" placeholder="Enter your Name" required minlength="3">
+        </ion-input>
+        <div class="error-text" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors?.['required']">This field is required.</div>
+          <div *ngIf="name.errors?.['minlength']">
+            Minimum length is 3 characters.
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="email" label="Email" fill="outline" labelPlacement="stacked" placeholder="Enter your Email"
+          [(ngModel)]="userData.userEmail" #email="ngModel" name="email" required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        </ion-input>
+        <div class="error-text" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors?.['required']">This field is required.</div>
+          <div *ngIf="email.errors?.['pattern']">
+            Please provide a valid email
+          </div>
+        </div>
+      </ion-col>
+
+      @if (userData.isSocialLogin === false) {
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="password" fill="outline" label="Password" labelPlacement="stacked"
+          [(ngModel)]="userData.password" #password="ngModel" name="password" placeholder="Enter your password" required
+          minlength="6">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <div class="error-text" *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors?.['required']">
+            This field is required.
+          </div>
+          <div *ngIf="password.errors?.['minlength']">
+            Minimum length is 6 characters.
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="password" fill="outline" label="Confirm Password" labelPlacement="stacked"
+          [(ngModel)]="userData.cpassword" #cpassword="ngModel" name="cpassword" placeholder="Enter password again"
+          required (input)="validatePassword()">
+          <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+        </ion-input>
+        <div class="error-text" *ngIf="cpassword.invalid && (cpassword.dirty || cpassword.touched)">
+          <div *ngIf="cpassword.errors?.['required']">
+            This field is required.
+          </div>
+        </div>
+        <div class="error-text" *ngIf="passCheck">Passwords do not match.</div>
+      </ion-col>
+      }
+
+      <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+        <ion-input type="tel" label="Mobile" fill="outline" labelPlacement="stacked" [(ngModel)]="userData.phone"
+          #mobile="ngModel" name="mobile" placeholder="Enter your Mobile" required minlength="10" maxlength="10">
+        </ion-input>
+        <div class="error-text" *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)">
+          <div *ngIf="mobile.errors?.['required']">This field is required.</div>
+          <div *ngIf="mobile.errors?.['minlength']">
+            Minimum length is 10 characters.
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" class="ion-padding-bottom">
+        <ion-title class="ion-no-padding">Pick Up Points</ion-title>
+      </ion-col>
+      <ion-col size="12" class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+            <ion-input label="Pick-up Location" fill="outline" labelPlacement="stacked"
+              [(ngModel)]="userData.pickUpLocation" name="pickUpLocation" placeholder="Optional" id="pickUpLocation">
+            </ion-input>
+          </ion-col>
+          <ion-col size="12" sizeMd="6" class="ion-padding-bottom">
+            <ion-input label="Drop Location" fill="outline" labelPlacement="stacked" [(ngModel)]="userData.dropLocation"
+              name="dropLocation" placeholder="Optional" id="dropLocation">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button type="submit" [disabled]="!registerUserForm.form.valid || passCheck">
+          Register
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <!-- Social Logins -->
+  <div class="socialLogins">
+    <p class="ion-text-center">Or Register With</p>
+    <div class="socialIcons">
+      <div class="google" id="google"></div>
+      <ion-button class="faceBook" (click)="facebookLogin()">
+        <ion-avatar slot="start" class="facebookIcon">
+          <img alt="facebook" src="../../../assets/images/svgs/facebook.svg" />
+        </ion-avatar>
+        Login with Facebook
+      </ion-button>
+      <!-- <div class="google" id="google">
+        <img src="/assets/images/svgs/google.svg" alt="" />
+      </div>
+      <div class="faceBook">
+        <img src="/assets/images/svgs/facebook.svg" alt="" />
+      </div> -->
+    </div>
+  </div>
+  <!-- Social Logins -->
+</ion-content>

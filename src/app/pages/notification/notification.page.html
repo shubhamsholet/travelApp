@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let notification of allnotfication let i = index ">
+    <ion-card (click)="checkNotification(i)">
+      <ion-row class="ion-padding-horizontal ion-padding-top">
+        <ion-col size="4" class="">
+          <ion-icon class="notiCar" name="car-sport-outline"></ion-icon>
+        </ion-col>
+        <ion-col size="8" class="">
+          <h4>{{notification.senderName}}, {{notification.message}} </h4>
+        </ion-col>
+      </ion-row>
+
+
+    </ion-card>
+  </div>
+</ion-content>

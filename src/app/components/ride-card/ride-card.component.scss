@@ -1,0 +1,241 @@
+ion-card {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 25px 2px,
+        rgba(0, 0, 0, 0.14) 1px 3px 7px -2px,
+        rgba(0, 0, 0, 0.12) -12px 12px 21px 0px;
+
+
+    .travelDetails {
+
+        p:first-child {
+            font-weight: 700;
+            font-size: 12px;
+            color: #33A05E;
+            padding-left: 1.7rem;
+        }
+
+        p:last-child {
+            color: #BAD4DA;
+            font-weight: 700;
+            font-size: 12px;
+            padding-left: 1.7rem;
+        }
+
+        .location {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: flex;
+            gap: 0.2rem;
+            align-items: center;
+
+            .locationIcon svg {
+                height: 1.5rem;
+                width: 1.5rem;
+                color: #D3E3E7;
+            }
+        }
+    }
+
+    .timeSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .totalTimeTakenArea {
+            width: 8rem;
+            height: fit-content;
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            .timeBox {
+                width: fit-content;
+                height: fit-content;
+                background-color: #a9aeb7;
+                padding: 0.1rem 0.5rem;
+                border-radius: 1rem;
+                color: #33666C;
+                font-size: 11px;
+            }
+
+            .arrowIcon svg {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                height: 1rem;
+                top: 10%;
+                z-index: -1;
+
+            }
+
+        }
+    }
+
+    .divider {
+        height: 0.1rem;
+        background-color: #D3E3E7;
+        width: 100%;
+    }
+
+    .userInfo {
+        display: flex;
+        gap: 1rem;
+
+        ion-avatar {
+            --border-radius: 15%;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            p {
+                font-size: 11px;
+            }
+
+            div {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .seatPriceSection {
+        display: flex;
+        align-items: center;
+        // gap: 1rem;
+        justify-content: end;
+
+        .price {
+            padding: 0.1rem 0.5rem;
+            background-color: #279657;
+            color: white;
+            font-size: 16px;
+            border-radius: 1rem;
+        }
+
+        ion-badge {
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 0.2rem 0.7rem;
+            border-radius: 1rem;
+        }
+    }
+
+    // .ellipsis-text {
+    //     white-space: nowrap;
+    //     width: 100%;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+
+}
+
+
+
+
+.newcard {
+    .primary {
+        background: #0075fd;
+    }
+
+    .top.primary {
+        position: relative;
+        min-height: 5rem;
+
+    }
+
+    .top.primary .showSeat {
+        position: absolute;
+        background-color: #3995ff;
+        color: white;
+        top: 0;
+        left: 0;
+        border-radius: 0 0 1rem 0;
+        padding: 0.4rem 0.8rem;
+    }
+
+
+    .userdetail {
+        text-align: center;
+        width: 100%;
+    }
+
+    .userdetail img {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+        background-color: white;
+        margin-top: -2rem;
+        box-shadow: 1px 1px 1px red;
+    }
+
+    .middlePart .d-flex,
+    .bottomPnl .d-flex {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+    }
+
+    .img-person {
+        font-size: 2rem;
+    }
+
+    .userdetail .username,
+    .middlePart ion-row ion-col p {
+        // color: black;
+        // font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .gold-rush {
+        color: #f89d1c !important;
+    }
+
+    .gold-rush p {
+        border-right: 1px solid black;
+    }
+
+    .wallet {
+        color: green;
+    }
+
+
+    .middlePart ion-row ion-col {
+        width: fit-content;
+    }
+
+    .middlePart ion-row ion-col p ion-icon {
+        font-size: 1.5rem;
+    }
+
+    .bottomPnl ion-icon {
+        font-size: 1.5rem;
+    }
+
+    .middlePart ion-row ion-col p {
+        margin: 0;
+        padding: 0;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+
+
+    .middlePart ion-row {
+        width: 70%;
+        margin: auto;
+        margin-top: -.5rem;
+        margin-bottom: 1rem;
+    }
+
+
+
+    .bottom.primary p {
+        color: white;
+        text-align: center;
+        width: 100%;
+    }
+}

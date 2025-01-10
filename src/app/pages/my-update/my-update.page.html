@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Update</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card *ngFor="let ride of rideList;let i = index " (click)="rideDetailView(i)">
+    <ion-header>
+      <ion-row class="ion-padding">
+        <ion-col size="12" class="">
+          <div class="travelDetails">
+            <!-- <p>Source</p> -->
+            <div class="location">
+              <div class="locationIcon svg-container">
+                <img src="../../../assets/images/svgs/start.svg" alt="" class="pin-img">
+                <img src="../../../assets/images/svgs/route.svg" alt="">
+
+              </div>
+              <b>{{ ride.from }}</b>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" class="dest-container">
+          <div class="travelDetails">
+            <!-- <p>Destination</p> -->
+            <!--  -->
+            <div class="location end">
+              <div class="locationIcon round">
+                <img src="../../../assets/images/svgs/round.svg" alt="" class="pin-img red-filter ">
+              </div>
+              <b>{{ ride.to }}</b>
+            </div>
+          </div>
+        </ion-col>
+
+        <!--  -->
+        <ion-col size="12" class="ride-detail-container">
+          <div class="ride-detail">
+            <p>Duration</p>
+            <p>{{ ride.duration }}</p>
+          </div>
+          <div class="ride-detail">
+            <p>Distance</p>
+            <p>{{ ride.distance }}</p>
+          </div>
+          <div class="ride-detail">
+            <p>Ride Id</p>
+            <p>{{ ride.id }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-header>
+    <!-- <div class="divider"></div> -->
+
+  </ion-card>
+</ion-content>

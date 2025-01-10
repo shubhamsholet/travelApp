@@ -1,0 +1,83 @@
+ .main {
+     border: 2px solid #BAD4DA;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     border-radius: 25px;
+     position: relative;
+     background: rgba(221, 247, 247, 0.7019607843);
+ }
+
+ .flex-box {
+     display: flex;
+     border-radius: 19px;
+     align-items: center;
+     padding-left: 1rem;
+     color: black;
+ }
+
+
+ .img-1 {
+     width: 2.5rem;
+ }
+
+ button.togg-btn-1 {
+     position: absolute;
+     background: transparent;
+     top: 37%;
+     right: 0.5rem;
+ }
+
+ .togg-btn {
+     border-bottom: 2px solid #BAD4DA;
+ }
+
+ .input-wrapper {
+     display: flex;
+     align-items: center;
+     position: relative;
+
+ }
+
+ .icon {
+     width: 24px;
+     height: 24px;
+     margin-right: 8px;
+ }
+
+ ::ng-deep {
+     ion-input input {
+         text-overflow: ellipsis !important;
+         white-space: nowrap !important;
+     }
+ }
+
+ .has-focus.ion-valid.sc-ion-input-md-h,
+ .ion-touched.ion-invalid.sc-ion-input-md-h {
+     --border-color: none !important;
+ }
+
+ .ion-touched.ion-invalid.sc-ion-input-md-h {
+     --highlight-color: none !important;
+ }
+
+ .has-focus.ion-valid.sc-ion-input-md-h,
+ .ion-touched.ion-invalid.sc-ion-input-md-h:hover {
+     //   border-left: 2px solid #33A05E;
+     border-bottom: none !important;
+
+ }
+
+
+ .has-focus.ion-valid.sc-ion-input-md-h,
+ .ion-touched.ion-invalid.sc-ion-input-md-h {
+     border-bottom: none !important;
+     --highlight-color: transparent !important
+ }
+
+ .sc-ion-input-md-h {
+     --highlight-color-focused: none !important;
+     --highlight-color-valid: none !important;
+     --highlight-color-invalid: none !important;
+     --highlight-color: none !important;
+
+ }

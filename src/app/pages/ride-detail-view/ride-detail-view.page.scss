@@ -1,0 +1,178 @@
+::ng-deep {
+    ion-col {
+        min-height: auto;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+ion-card {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 25px 2px,
+        rgba(0, 0, 0, 0.14) 1px 3px 7px -2px,
+        rgba(0, 0, 0, 0.12) -12px 12px 21px 0px;
+
+    .route {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px dashed #80808038;
+    }
+
+    .route p:first-child {
+        font-size: larger;
+        font-weight: bold;
+        color: black;
+    }
+
+    .travelDetails {
+        p:last-child {
+            color: #BAD4DA;
+            font-weight: 700;
+            font-size: 12px;
+            margin-top: .8125rem;
+        }
+
+        .location {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+
+            .locationIcon svg {
+                height: 1.5rem;
+                width: 1.5rem;
+                color: #D3E3E7;
+            }
+        }
+    }
+
+}
+
+
+ion-row.ion-padding-horizontal.md {
+    display: flex;
+    flex-direction: column;
+}
+
+.red-filter {
+    filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(10000%);
+}
+
+.round {
+    padding: 0 0.3rem;
+}
+
+.svg-container {
+    max-width: 1.5rem;
+    min-width: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+        max-height: 2rem;
+        max-width: 2rem;
+        min-height: 2rem;
+        min-width: 2rem;
+        border-radius: 50%;
+    }
+}
+
+.locationToFrom {
+    width: 100%;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+.requestedCss,
+.pendingCss,
+.acceptedCss,
+.ongoingCss,
+.completedCss,
+.canceledCss {
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 0.2rem 0.6rem;
+    font-weight: bold;
+}
+
+.pendingCss {}
+
+.acceptedCss {}
+
+.ongoingCss {}
+
+.completedCss {}
+
+.canceledCss {
+    background-color: red;
+}
+
+.cancelBtn {
+    width: 100%;
+}
+
+.rideActivity {
+    ion-buttons {
+        margin: 1rem;
+    }
+}
+
+.ride-detail-container {
+    padding-top: 1rem;
+    border-top: 2px dashed #80808038;
+
+    .ride-detail {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            margin: 0.5rem 0;
+        }
+
+    }
+}
+
+::ng-deep {
+    .editRideModalCss {
+        --height: 300px;
+        --max-width: 375px;
+        --backdrop-opacity: 0.5 !important;
+        --border-radius: 8px;
+        backdrop-filter: blur(5px);
+    }
+
+    .cancelModal {
+        --height: 180px;
+        --max-width: 375px;
+        --backdrop-opacity: 0.5 !important;
+        --border-radius: 8px;
+        backdrop-filter: blur(5px);
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.stars ion-icon {
+    font-size: 1.25rem;
+    color: gray;
+}

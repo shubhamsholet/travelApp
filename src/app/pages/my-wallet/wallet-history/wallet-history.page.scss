@@ -1,0 +1,219 @@
+.main-content {
+    box-sizing: border-box;
+    padding-left: 2rem;
+}
+
+.searchSection {
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 100%;
+}
+
+.search-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 500px;
+    margin-left: -1.5rem !important;
+}
+
+button.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 8px;
+    padding-left: 0px;
+    padding-right: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid gainsboro;
+}
+
+button.filter-btn:hover {
+    background-color: #a79e9e2b;
+}
+
+::ng-deep input.searchbar-input.sc-ion-searchbar-md {
+    border-radius: 8px;
+    border: 1px solid gainsboro;
+    padding-right: 2rem;
+}
+
+.text {
+    padding-left: 0rem;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+ion-list.ion-no-margin.md.list-md {
+    padding-left: 0rem;
+}
+
+.filter-box {
+    display: flex;
+    // gap: 1rem;
+    align-items: baseline;
+}
+
+ion-datetime-button.date.ion-color.ion-color-primary.md {
+    flex-basis: 21rem;
+    flex-grow: 1;
+}
+
+p.para-txt {
+    flex-basis: 5rem;
+    flex-grow: 1;
+}
+
+ion-modal>.ion-page {
+    position: relative;
+    contain: layout style;
+    height: 100%;
+}
+
+::ng-deep .popover-viewport:has(>ion-content) {
+    overflow: hidden;
+    --width: 255px;
+    // height: 300px;
+}
+
+.credit-debits {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    justify-content: space-around;
+}
+
+.credit {
+    border: 2px solid gainsboro;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+.debit {
+    border: 2px solid gainsboro;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: transparent;
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+.navbar-margin-top {
+    margin-top: 3rem;
+}
+
+.text-color {
+    color: black;
+}
+
+ion-popover {
+    --width: 300px;
+    /* Set the desired width */
+    --min-width: 200px;
+    /* Optional: Set a minimum width */
+    --max-width: 500px;
+    /* Optional: Set a maximum width */
+}
+
+// ::ng-deep .searchamount {
+//     padding-right: 0 !important;
+// }
+
+ion-toolbar.search-items.toolbar-searchbar.md.in-toolbar {
+    width: 68%;
+}
+
+ion-toolbar.search-items.inputamount.toolbar-searchbar.md.in-toolbar {
+    width: 95% !important;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.para-txt {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.date {
+    // background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.credit-debits {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px 0;
+}
+
+.credit,
+.debit {
+    flex: 1;
+    margin: 0 8px;
+    padding: 12px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+
+.credit {
+    background-color: #28a745;
+}
+
+.debit {
+    background-color: #dc3545;
+}
+
+.credit:hover,
+.debit:hover {
+    opacity: 0.9;
+}
+
+.inputamount {
+    margin-top: 16px;
+}
+
+.searchamount {
+    --background: #e9ecef;
+    --color: #495057;
+    --placeholder-color: #adb5bd;
+    border-radius: 4px;
+}
+
+.calendar-icon {
+    font-size: 3rem;
+}
+
+.svgbg {
+    background-color: #F6F6F6;
+    border-radius: 1.5rem;
+    display: flex;
+    padding: 0.6rem;
+    align-items: center;
+}

@@ -1,0 +1,36 @@
+@if (localStr.getItem('isUserLoggedIn')) {
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>myCarpool</ion-list-header>
+          <ion-note>{{ commonService.currentUserEmail }}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+              routerLinkActive="selected">
+
+              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon" [md]="p.icon"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+
+              <!-- Add badge for Notifications -->
+              <ion-badge slot="end" *ngIf="p.title === 'Notifications'">{{ notificationCount }}</ion-badge>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list id="labels-list">
+          <ion-item lines="none" (click)="logOut()">
+            <ion-icon slot="start" name="exit"></ion-icon>
+            <ion-label>Log out</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+} @else {
+<ion-router-outlet></ion-router-outlet>
+}

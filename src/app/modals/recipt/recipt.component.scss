@@ -1,0 +1,90 @@
+// ::ng-deep {
+//     .ReciptComponentCss {
+//         --height: 80%;
+//         --width: 80%;
+//         --backdrop-opacity: 0.5 !important;
+//         --border-radius: 8px;
+//         backdrop-filter: blur(5px);
+//     }
+// }
+
+ion-header {
+    --background: #3171e0;
+    --color: white;
+}
+
+
+
+ion-card.transaction-card {
+    margin: 0rem 2rem 2rem 2rem;
+}
+
+.amount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #eda33c;
+}
+
+ion-button.send-money-btn {
+    margin-top: 1rem;
+}
+
+ion-item-divider {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+ion-label.photo-container.sc-ion-label-md-h.sc-ion-label-md-s.md {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.photo-container img {
+    max-width: 64px;
+    min-width: 30px;
+}
+
+.dashed {
+    padding: 0.5rem 0 0 0;
+    border-top: 2px dashed rgba(128, 128, 128, 0.2196078431);
+    // border-bottom: 2px dashed rgba(128, 128, 128, 0.2196078431);
+}
+
+.header-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success {
+    max-width: 3rem;
+}
+
+.dot {
+    font-size: 2rem;
+    margin-top: -0.57rem;
+}
+
+.date {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.transaction-content {
+    padding: 0 16px;
+}
+
+.transaction-heading {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.transaction-heading h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}

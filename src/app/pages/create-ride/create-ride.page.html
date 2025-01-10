@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Create Your Ride</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding rideDetails">
+
+
+
+  <form [formGroup]="createRideForm" (ngSubmit)="onCreateRide()">
+    <ion-row>
+      <ion-col>
+        <ion-radio-group formControlName="rideType">
+          <ion-radio value="driver" aria-label="As a Driver">As a Driver</ion-radio>
+          <ion-radio value="companion" aria-label="As a Companion">As a Companion</ion-radio>
+        </ion-radio-group>
+      </ion-col>
+      <ion-col size="12" class="tofrom">
+        <app-travel-from-to (locationsChanged)="onLocationsChanged($event)" [from]="from"
+          [to]="to"></app-travel-from-to>
+      </ion-col>
+      <ion-col size="12" class="dateTime">
+        <div class="custom-date-container">
+          <input type="date" [(ngModel)]="date" [min]="minDate" class="date formInput" formControlName="date" />
+        </div>
+        <div class="custom-time-container">
+
+          <input type="time" [(ngModel)]="time" class="time formInput" formControlName="time" />
+        </div>
+      </ion-col>
+
+      <ion-col size="12" class="seatAvl formInput">
+        <p *ngIf="rideCreatedBy === 'driver'; else companionText">
+          Seat Available
+        </p>
+        <ng-template #companionText>
+          <p>Seat required</p>
+        </ng-template>
+
+        <input type="number" [(ngModel)]="seatAvl" formControlName="seatAvl" />
+        <div>
+          <ion-button (click)="decseatAvl()" class="decBtn" [disabled]="seatAvl <= 1">-</ion-button>
+          <ion-button (click)="incseatAvl()" [disabled]="seatAvl >= 7">+</ion-button>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="price formInput" *ngIf="rideCreatedBy === 'driver'">
+        <p>Price Per Person</p>
+        <span>Rs-</span>
+        <input type="number" [(ngModel)]="price" formControlName="price" />
+      </ion-col>
+      <ion-col size="12" class="companionNames formInput" *ngIf="rideCreatedBy !== 'driver'">
+        <input type="text" placeholder="companion names" [(ngModel)]="companionNames"
+          formControlName="companionNames" />
+      </ion-col>
+
+      <ion-col size="12" *ngIf="rideCreatedBy === 'driver' && carDetails?.length>0">
+        <select class="dropdown" [(ngModel)]="vehicle" (ngModelChange)="onVehicleChange($event)"
+          formControlName="vehicle">
+          <option *ngFor="let vehicle of carDetails" [value]="vehicle.vehicleName">
+            {{ vehicle.vehicleName }}
+          </option>
+        </select>
+      </ion-col>
+
+      <!-- <ion-col size="12" class="companionNames" *ngIf="rideCreatedBy === 'driver' && carDetails.length === 0"> -->
+      <ion-col size="12" class="companionNames" *ngIf="rideCreatedBy === 'driver' && carDetails?.length<1">
+        <p (click)="vehicles()" class="errorHere">Enter car details first in the profile section <span
+            class="arrow">→</span>
+        </p>
+      </ion-col>
+
+      <!-- <ion-col size="12" class="submit"> 
+        <ion-button expand="block" class="primary" type="submit"
+          [disabled]="createRideForm.invalid || carDetails?.length<1">Create
+          Ride</ion-button>
+      </ion-col> -->
+      <ion-col size="12" class="submit">
+        <ion-button expand="block" class="primary" type="submit" [disabled]="createRideForm.invalid  ">Create
+          Ride</ion-button>
+      </ion-col>
+
+    </ion-row>
+  </form>
+</ion-content>

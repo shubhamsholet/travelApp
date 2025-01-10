@@ -1,0 +1,267 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ride-detail-view</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="currentUser !== undefined">
+  <ion-card>
+    <ion-row class="ion-padding">
+      <ion-col class="route" size="12">
+        <p>Ride Route</p>
+        <p> <b>Ride Id :</b> {{ matchedRideToDisplay?.id }} </p>
+      </ion-col>
+      <ion-col size="12" class="">
+        <div class="travelDetails">
+          <div class="location">
+            <div class="locationIcon svg-container">
+              <img src="../../../assets/images/svgs/start.svg" alt="" class="pin-img">
+              <img src="../../../assets/images/svgs/route.svg" alt="">
+            </div>
+            <div class="locationToFrom">
+              <b class="">{{ matchedRideToDisplay?.from }}</b>
+              <p><b>{{ matchedRideToDisplay?.distance }}, {{matchedRideToDisplay?.duration}}</b></p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" class="dest-container ion-padding-bottom">
+        <div class="travelDetails">
+          <div class="location end">
+            <div class="locationIcon round">
+              <img src="../../../assets/images/svgs/round.svg" alt="" class="pin-img red-filter ">
+            </div>
+            <b class="locationToFrom">{{ matchedRideToDisplay?.to }}</b>
+          </div>
+        </div>
+      </ion-col>
+      <!--  -->
+      <ion-col size="12" class="ride-detail-container">
+        <div class="ride-detail">
+          <b>Date</b>
+          <p>{{ matchedRideToDisplay?.date }}</p>
+        </div>
+        <div class="ride-detail">
+          <b>Time</b>
+          <p>{{ matchedRideToDisplay?.time }}</p>
+        </div>
+        <div class="ride-detail">
+          <b>Seat</b>
+          <p>{{ matchedRideToDisplay?.seatAvl }}</p>
+        </div>
+        <div class="ride-detail">
+          <b>Price</b>
+          <p>{{ matchedRideToDisplay?.price }}</p>
+        </div>
+        <div class="ride-detail" *ngIf="matchedRideToDisplay?.companionNames !== 'this is driver ride' ">
+          <b>Companions Name</b>
+          <p>{{ matchedRideToDisplay?.companionNames }}</p>
+        </div>
+
+        <div class="ride-detail">
+          <b>Ride status</b>
+          <p [ngClass]="{
+            'requestedCss': matchedRideToDisplay?.status === 'Requested',
+            'createdCss': matchedRideToDisplay?.status === 'created', 
+            'acceptedCss': matchedRideToDisplay?.status === 'accepted',
+            'ongoingCss': matchedRideToDisplay?.status === 'ongoing',
+            'completedCss': matchedRideToDisplay?.status === 'completed',
+            'canceledCss': matchedRideToDisplay?.status === ('cancelled' || 'RideCancelledByDriver' || 'rejected') 
+          }">
+            <ng-container [ngSwitch]="matchedRideToDisplay?.status" class="statusArea">
+              <ion-label *ngSwitchCase="'Requested'">Requested </ion-label>
+              <ion-label *ngSwitchCase="'created'">created </ion-label>
+              <ion-label *ngSwitchCase="'accepted'">Accepted</ion-label>
+              <ion-label *ngSwitchCase="'ongoing'">Ongoing</ion-label>
+              <ion-label *ngSwitchCase="'completed'">Completed</ion-label>
+              <ion-label *ngSwitchCase="'cancelled'">Cancelled</ion-label>
+              <ion-label *ngSwitchCase="'RideCancelledByDriver'">Cancelled</ion-label>
+              <ion-label *ngSwitchCase="'rejected'">Rejected</ion-label>
+            </ng-container>
+          </p>
+        </div>
+        <div class="ride-detail">
+          <b>Transaction Status</b>
+          <p>Paid</p>
+        </div>
+        <div class="ride-detail">
+          <b>Total distance traveled</b>
+          <p>custom 25km</p>
+        </div>
+        <div class="ride-detail">
+          <b>Total traveled duration</b>
+          <p>custom 2 hr</p>
+        </div>
+        <div class="ride-detail">
+          <b>Resolution Status</b>
+          <p>Flag raised pending / solved / resolved by admin</p>
+        </div>
+        <div size="12" class=" " *ngIf="showpassengerList">
+          <ion-buttons slot="primary" (click)="editRide()">
+            <ion-button fill="outline" [disabled]="showEditBtn">
+              Edit
+              <ion-icon name="create"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-row class=" ion-padding">
+      <ion-col class="route" size="12">
+        <p>Driver Details</p>
+      </ion-col>
+      <ion-col size="12" class="">
+        <p class="profile"><img [src]="matchedRideToDisplay?.riderpicture" alt="Profile pic"><b>{{
+            matchedRideToDisplay?.ridername }}</b></p>
+      </ion-col>
+
+      <ion-col size="12" class="dest-container">
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-icon class="ion-padding-end" [color]="matchedRideToDisplay?.riderEmail ? 'success':'medium'"
+            [name]="matchedRideToDisplay?.riderEmail ?'checkmark-circle-outline':'add-circle-outline'"></ion-icon>
+          <ion-label *ngIf="!isEmailVerified" color="primary">
+            {{matchedRideToDisplay?.riderEmail}}
+          </ion-label>
+          <ion-label *ngIf="isEmailVerified" color="primary">
+            {{matchedRideToDisplay?.riderEmail}}
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+          <ion-icon class="ion-padding-end" [color]="isPhoneVerified? 'success':'medium'"
+            [name]="isPhoneVerified ? 'checkmark-circle-outline' : 'add-circle-outline'"></ion-icon>
+          <ion-label *ngIf="!isPhoneVerified" color="primary">
+            Confirm phone number
+          </ion-label>
+          <ion-label *ngIf="isPhoneVerified" color="primary">
+            {{rideCreator.phone}}
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding">
+
+          <ion-label *ngIf="averageStars===0 || averageStars===undefined" color="primary">
+            No Rating Yet
+          </ion-label>
+
+          <ion-label *ngIf="averageStars" color="primary">
+            <div class="stars">
+              <ion-icon name="thumbs-up-outline" class="ion-padding-end ion-color-success"></ion-icon>
+              <ion-icon *ngFor="let star of [].constructor(5); let i = index"
+                [name]="i < (RoundOfStar) ? 'star' : 'star-outline'" color="warning">
+              </ion-icon>
+            </div>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card *ngIf="showpassengerList">
+    <ion-col class="route" size="12">
+      <p>Passanger request list</p>
+    </ion-col>
+    <div *ngFor="let Passanger of matchedRideToDisplay?.passengerList let i = index ">
+      <!-- <ion-row class="ion-padding" *ngIf="Passanger.passStatus !== 'accepted' && Passanger.passStatus !== 'rejected'"> -->
+      <ion-row class="ion-padding" *ngIf="Passanger.passStatus === 'Requested'">
+        <ion-col size="4" class="">
+          <p>{{Passanger.passName}}</p>
+        </ion-col>
+        <ion-col size="4" class="">
+          <ion-button expand="block" class="primary"
+            (click)="acceptRejectRequest(i,['accept'])"><span>Accept</span></ion-button>
+        </ion-col>
+        <ion-col size="4" class="">
+          <ion-button expand="block" class="danger"
+            (click)="acceptRejectRequest(i,['reject'])"><span>Reject</span></ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+
+  <ion-card class="rideActivity">
+    <ion-row class=" ion-padding">
+      <ion-col class="route" size="12">
+        <p>Ride Activity</p>
+      </ion-col>
+      <ion-col class=" " size="12">
+        <div>
+          <ion-buttons slot="primary">
+            <ion-button fill="outline"
+              (click)="showpassengerList === false ? startStopByPassNotification(['start']) : startStopRideByDriverNotification(['start'])">
+              Start Ride
+              <!-- <ion-icon name="create"></ion-icon> -->
+            </ion-button>
+          </ion-buttons>
+        </div>
+        <div>
+          <ion-buttons slot="primary">
+            <ion-button fill="outline"
+              (click)="showpassengerList === false ? startStopByPassNotification(['stop']) : startStopRideByDriverNotification(['stop'])">
+              Stop Ride
+              <!-- <ion-icon name="create"></ion-icon> -->
+            </ion-button>
+          </ion-buttons>
+        </div>
+        <div>
+          <ion-buttons slot="primary">
+            <ion-button fill="outline">
+              Discrepancy Flag
+              <!-- <ion-icon name="create"></ion-icon> -->
+            </ion-button>
+          </ion-buttons>
+        </div>
+
+        <div>
+          <ion-buttons slot="primary">
+            <ion-button fill="outline">
+              Pilot Agreement Companion Agreement
+              <!-- <ion-icon name="create"></ion-icon> -->
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <div class="cancelBtn ion-padding-horizontal ion-padding-bottom">
+    <ion-button *ngIf="showpassengerList === true || showpassengerList === false" expand="block" id="open-cancel-dialog"
+      class="danger">
+      <span>Cancel Ride</span>
+    </ion-button>
+
+    <ion-modal #modal trigger="open-cancel-dialog" class="cancelModal">
+      <ng-template>
+        <div class="ion-padding-horizontal">
+          <h4>Are you sure you want to cancel the ride? This action is not reversible!</h4>
+
+          <ion-row>
+            <ion-col>
+              <ion-item class="success ion-text-center" lines="none" button="true" detail="false"
+                (click)="showpassengerList === false ? cancelRide() : cancelByDriver()">
+                <ion-label class="ion-padding-horizontal">Yes</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item class="danger ion-text-center" lines="none" button="true" detail="false"
+                (click)="modal.dismiss()">
+                <ion-label class="ion-padding-horizontal">No</ion-label>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ng-template>
+    </ion-modal>
+  </div>
+  <div class="ion-padding-horizontal ion-padding-bottom">
+    <!-- <ion-button expand="block" class="primary" (click)="bookRide()"><span>Book
+        Ride</span></ion-button> -->
+    <ion-button expand="block" class="primary" (click)="bookRide()" [disabled]="disableBookButton()"><span>Book
+        Ride</span></ion-button>
+  </div>
+</ion-content>

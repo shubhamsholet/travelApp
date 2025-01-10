@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Login </ion-title>
+    <ion-button slot="end" color="none" class="shadow-none" (click)="close()">
+      <ion-icon name="close" color="dark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="loginArea ion-padding">
+    <form #logInForm="ngForm" (ngSubmit)="onSubmit(logInForm)">
+      <ion-row class="loginItems">
+        <ion-col size="12" class="ion-padding-bottom">
+          <ion-input type="email" label="Email" fill="outline" labelPlacement="stacked" placeholder="Enter your Email"
+            [(ngModel)]="userData.userEmail" #email="ngModel" name="email" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          </ion-input>
+          <div class="error-text" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="email.errors?.['pattern']">
+              Please provide a valid email
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="12" class="ion-padding-bottom">
+          <ion-input type="password" fill="outline" label="Password" labelPlacement="stacked" ngModel
+            #password="ngModel" name="password" placeholder="Enter your password" required minlength="6">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+          <div class="error-text" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.errors?.['required']">
+              This field is required.
+            </div>
+            <div *ngIf="password.errors?.['minlength']">
+              Minimum length is 6 characters.
+            </div>
+          </div>
+          <p class="frgtPass" (click)="forgotPassModal()">Forgot Password ?</p>
+        </ion-col>
+        <ion-button type="submit" expand="block">Login</ion-button>
+      </ion-row>
+    </form>
+    <!-- Social Logins -->
+    <div class="socialLogins">
+      <p class="ion-text-center">Or Login With</p>
+      <div class="socialIcons">
+        <div class="google" id="google"></div>
+        <ion-button class="faceBook" (click)="facebookLogin()">
+          <ion-avatar slot="start" class="facebookIcon">
+            <img alt="facebook" src="../../../assets/images/svgs/facebook.svg" />
+          </ion-avatar>
+          Login with Facebook
+        </ion-button>
+      </div>
+
+      <!-- for facebook -->
+    </div>
+    <!-- Social Logins -->
+    <p class="btm-text">
+      Don’t have an account yet?
+      <a (click)="registerUser()">Register here</a>
+    </p>
+  </div>
+</ion-content>

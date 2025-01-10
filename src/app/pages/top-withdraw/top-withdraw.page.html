@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ operation === 'topUpClicked' ? 'Add Money to Wallet' : 'Withdraw Money From Wallet' }}
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ng-container>
+    <ion-card class="ion-padding">
+      <ion-card-header>
+        <ion-card-subtitle class="custom-font-subtitle"> {{ operation === 'topUpClicked' ? 'Add Money to' :
+          'Withdraw Money from' }}</ion-card-subtitle>
+        <ion-card-title class="custom-font-title">Wallet</ion-card-title>
+
+        <ion-item lines="none" class="ion-no-padding custom-font-subtitle" color="">
+          <ion-label>Available Balance ₹ {{ userBalance }}</ion-label>
+          <ion-icon name="wallet" slot="end" class="custom-icon-size" color="light"></ion-icon>
+        </ion-item>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list>
+          <ion-item lines="none ion-no-padding">
+            <ion-input [(ngModel)]="amountToAdd" type="number" inputmode="numeric" class="input-box ion-no-padding"
+              placeholder="Enter amount" pattern="[0-9]*" required>
+              <img src="../../../assets/images/svgs/rupiya.svg" alt="" slot="start">
+            </ion-input>
+          </ion-item>
+        </ion-list>
+
+        <ion-button expand="block" color="primary" class="ion-margin-top next-btn"
+          (click)="operation === 'topUpClicked' ? addMoney() : withdrawMoney()">
+          {{ operation === 'topUpClicked' ? 'Proceed to Add Money' : 'Proceed to Withdraw Money' }}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

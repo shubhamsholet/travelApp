@@ -1,0 +1,248 @@
+.timeLocationSection {
+    width: fit-content;
+    position: relative;
+
+
+    .circle {
+        min-width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #a9aeb7;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        border: 1px solid blue;
+    }
+
+
+
+    .card-item {
+        display: flex;
+        gap: 1.5rem;
+        position: relative;
+        align-items: baseline;
+
+        .time {
+            min-width: 2.5rem;
+        }
+    }
+
+}
+
+.timeLocationSection::before {
+    content: '';
+    // height: calc(100% - 1rem);
+    width: 0.1rem;
+    left: 4.25rem;
+    top: 0rem;
+    background-color: blue;
+    position: absolute;
+    height: 100%;
+}
+
+// 
+ion-card {
+    margin-bottom: 16px;
+    border-radius: 12px;
+}
+
+.time-location-section {
+    .card-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .time {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .icon-circle {
+            font-size: 8px;
+            color: #3880ff;
+            margin-right: 8px;
+        }
+
+        .location {
+            font-size: 14px;
+            color: #333;
+        }
+    }
+
+    .travel-time {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 8px;
+    }
+}
+
+.charges-seat-section {
+    .card-item {
+        margin-bottom: 8px;
+
+        .fair {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+    }
+}
+
+.profile-photo {
+    border-radius: 50%;
+    width: 90%;
+    height: auto;
+    margin: 16px auto;
+}
+
+.button-margin {
+    margin-top: 8px;
+}
+
+.star-icon {
+    padding-left: 0.5rem;
+}
+
+.ion-item {
+    .ion-icon {
+        width: 1.5rem;
+    }
+}
+
+
+.seat {
+    font-size: 14px;
+}
+
+.flex-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    flex-direction: row;
+
+    ion-card-title {
+        font-size: 1.2em; // Adjust font size
+        font-weight: bold; // Make the title bold
+        margin-right: 8px; // Add space between title and subtitle
+    }
+
+    ion-card-subtitle {
+        font-size: 1em; // Adjust font size
+        color: gray; // Optional: change color for subtitle
+    }
+}
+
+ion-card-content {
+    padding-top: 1rem;
+}
+
+.journey-time {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.timeSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .totalTimeTakenArea {
+        width: 8rem;
+        height: fit-content;
+        position: relative;
+        display: flex;
+        justify-content: center;
+
+        .timeBox {
+            width: fit-content;
+            height: fit-content;
+            background-color: #a9aeb7;
+            padding: 0.1rem 0.5rem;
+            border-radius: 1rem;
+            color: #33666C;
+            font-size: 11px;
+        }
+
+        .arrowIcon svg {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            height: 1rem;
+            top: 10%;
+            z-index: -1;
+
+        }
+
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.svg-icon {
+    max-width: 1.5rem;
+}
+
+.ion-align-item-start {
+    align-items: flex-start;
+}
+
+.star-width {
+    max-width: 1.5rem;
+}
+
+.svg-container {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    font-size: 13px;
+}
+
+.user-img {
+    width: 3rem;
+}
+
+.journey-box {
+    width: fit-content;
+}
+
+.lst-bnt {
+    padding: 1rem 4rem;
+    border-radius: 24px;
+    background: #33A05E;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    font-size: 17px;
+    margin: 2rem auto;
+}
+
+
+.totalprice {
+    font-size: 16px;
+    background: #33a05e;
+    padding: 0.5rem;
+    border-radius: 15px;
+}
+
+ion-list.text-gray {
+    padding: 1rem;
+
+    ion-item {
+        ion-label {
+            color: var(--text-gray) !important
+        }
+    }
+
+}
+
+.date {
+    font-size: 27px;
+    color: #3c7178;
+    margin: 0.5rem 0;
+}

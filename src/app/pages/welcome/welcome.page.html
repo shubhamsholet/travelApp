@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main">
+    <div class="topBox">
+      <div class="para-box">
+        <h2>UrbanLift</h2>
+        <p>Choose Your Ride Option</p>
+        <!-- <div class="ion-padding-horizontal ion-padding-bottom">
+          <ion-button expand="block" class="primary"
+            (click)="sendNotification()"><span>sendNotification</span></ion-button>
+        </div> -->
+      </div>
+      <div class="ride-box">
+        <div class="findRide" [routerLink]="['/search']" routerLinkActive="router-link-active">
+          <div class="text-box">Find Your Ride</div>
+          <div class="img-box">
+            <img src="/assets/images/svgs/findRide.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="reqRide" (click)="reqRide()">
+          <div class="text-box">Request Ride</div>
+          <div class="img-box">
+            <img src="/assets/images/svgs/offerRide.svg" alt="" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="btn-box" *ngIf="!isLoggedIn">
+      <ion-button class="login" expand="block" (click)="loginModal()">
+        <span>Log in</span>
+      </ion-button>
+      <ion-button class="register" expand="block" [routerLink]="['/register']" routerLinkActive="router-link-active">
+        <span>Register</span>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

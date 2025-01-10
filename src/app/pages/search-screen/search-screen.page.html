@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button></ion-menu-button> -->
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Find Your Ride</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <div class="main">
+      <div class="para-box">
+        <h4 class="ion-text-center">
+          Enter your ride details and find your match!
+        </h4>
+      </div>
+      <div class="main-1">
+        <form #rideForm="ngForm">
+          <app-travel-from-to (locationsChanged)="onLocationsChanged($event)"></app-travel-from-to>
+
+          <div class="main-2">
+            <div class="custom-date-container">
+              <input type="date" [(ngModel)]="date" name="date" class="date" required #dateField="ngModel"
+                [min]="minDate" />
+              <div *ngIf="dateField.invalid && dateField.touched" class="error-message">
+                Date is required.
+              </div>
+            </div>
+
+
+            <div class="custom-time-container">
+              <input type="time" [(ngModel)]="time" name="time" class="time" required #timeField="ngModel" />
+              <div *ngIf="timeField.invalid && timeField.touched" class="error-message">
+                Time is required.
+              </div>
+            </div>
+
+
+            <ion-col size="12" class="seatAvl formInput">
+              <p>
+                Passengers
+              </p>
+              <!-- <input type="number" [(ngModel)]="passengers" formControlName="passengers" /> -->
+              <input type="number" [value]="passengers" />
+              <div>
+                <ion-button (click)="decPassengers()" class="decBtn" [disabled]="passengers <= 1">-</ion-button>
+                <ion-button (click)="incPassengers()" [disabled]="passengers >= 7">+</ion-button>
+              </div>
+            </ion-col>
+
+
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+
+          <div size="12" sizeLg="6" class="search-box btn-box">
+            <ion-button class="login" expand="block" (click)="search()" [disabled]="rideForm.invalid">
+              Search
+              <!-- <img src="../../../assets/images/svgs/arrow.svg" class="icon" /> -->
+            </ion-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-row>
+</ion-content>

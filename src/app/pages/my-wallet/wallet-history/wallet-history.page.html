@@ -1,0 +1,137 @@
+<!--  -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Wallet History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="main-content">
+    <ion-row class="searchSection">
+      <ion-col size="12">
+        <div class="search-type">
+          <ion-toolbar class="search-items">
+            <ion-searchbar placeholder="Search by name" (ionInput)="filterByName($event)"></ion-searchbar>
+          </ion-toolbar>
+          <!-- <ion-toolbar class="search-items">
+            <ion-searchbar placeholder="Search by amount" (ionInput)="filterByAmount($event)"></ion-searchbar>
+          </ion-toolbar> -->
+          <button class="filter-btn" id="click-trigger">
+            <div class="default-btn">
+              <!-- SVG icon for filter -->
+
+              <svg width="30" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M5.14169 15.5C5.31386 15.0121 5.63314 14.5896 6.05552 14.2907C6.4779 13.9918 6.98259 13.8313 7.50002 13.8313C8.01745 13.8313 8.52214 13.9918 8.94452 14.2907C9.3669 14.5896 9.68619 15.0121 9.85835 15.5H18.3334V17.1667H9.85835C9.68619 17.6547 9.3669 18.0772 8.94452 18.3761C8.52214 18.6749 8.01745 18.8354 7.50002 18.8354C6.98259 18.8354 6.4779 18.6749 6.05552 18.3761C5.63314 18.0772 5.31386 17.6547 5.14169 17.1667H1.66669V15.5H5.14169ZM10.1417 9.66672C10.3139 9.17877 10.6331 8.75624 11.0555 8.45737C11.4779 8.1585 11.9826 7.99801 12.5 7.99801C13.0174 7.99801 13.5221 8.1585 13.9445 8.45737C14.3669 8.75624 14.6862 9.17877 14.8584 9.66672H18.3334V11.3334H14.8584C14.6862 11.8213 14.3669 12.2439 13.9445 12.5427C13.5221 12.8416 13.0174 13.0021 12.5 13.0021C11.9826 13.0021 11.4779 12.8416 11.0555 12.5427C10.6331 12.2439 10.3139 11.8213 10.1417 11.3334H1.66669V9.66672H10.1417ZM5.14169 3.83338C5.31386 3.34544 5.63314 2.92291 6.05552 2.62404C6.4779 2.32517 6.98259 2.16467 7.50002 2.16467C8.01745 2.16467 8.52214 2.32517 8.94452 2.62404C9.3669 2.92291 9.68619 3.34544 9.85835 3.83338H18.3334V5.50005H9.85835C9.68619 5.98799 9.3669 6.41052 8.94452 6.70939C8.52214 7.00826 8.01745 7.16876 7.50002 7.16876C6.98259 7.16876 6.4779 7.00826 6.05552 6.70939C5.63314 6.41052 5.31386 5.98799 5.14169 5.50005H1.66669V3.83338H5.14169ZM7.50002 5.50005C7.72103 5.50005 7.933 5.41225 8.08928 5.25597C8.24556 5.09969 8.33335 4.88773 8.33335 4.66671C8.33335 4.4457 8.24556 4.23374 8.08928 4.07746C7.933 3.92118 7.72103 3.83338 7.50002 3.83338C7.27901 3.83338 7.06705 3.92118 6.91077 4.07746C6.75448 4.23374 6.66669 4.4457 6.66669 4.66671C6.66669 4.88773 6.75448 5.09969 6.91077 5.25597C7.06705 5.41225 7.27901 5.50005 7.50002 5.50005ZM12.5 11.3334C12.721 11.3334 12.933 11.2456 13.0893 11.0893C13.2456 10.933 13.3334 10.7211 13.3334 10.5C13.3334 10.279 13.2456 10.0671 13.0893 9.91079C12.933 9.75451 12.721 9.66672 12.5 9.66672C12.279 9.66672 12.067 9.75451 11.9108 9.91079C11.7545 10.0671 11.6667 10.279 11.6667 10.5C11.6667 10.7211 11.7545 10.933 11.9108 11.0893C12.067 11.2456 12.279 11.3334 12.5 11.3334ZM7.50002 17.1667C7.72103 17.1667 7.933 17.0789 8.08928 16.9226C8.24556 16.7664 8.33335 16.5544 8.33335 16.3334C8.33335 16.1124 8.24556 15.9004 8.08928 15.7441C7.933 15.5878 7.72103 15.5 7.50002 15.5C7.27901 15.5 7.06705 15.5878 6.91077 15.7441C6.75448 15.9004 6.66669 16.1124 6.66669 16.3334C6.66669 16.5544 6.75448 16.7664 6.91077 16.9226C7.06705 17.0789 7.27901 17.1667 7.50002 17.1667Z"
+                  fill="#191919" />
+              </svg>
+
+            </div>
+            <div class="text text-color">Filter</div>
+            <ion-popover trigger="click-trigger" triggerAction="click">
+
+              <ng-template>
+                <ion-content class="ion-padding">
+                  <!-- Date Range Filter -->
+                  <p>Filter by Date</p>
+                  <div class="filter-box">
+                    <p class="para-txt">From:</p>
+                    <ion-datetime-button class="date" datetime="fromDatetime"></ion-datetime-button>
+                    <ion-modal [keepContentsMounted]="true">
+
+                      <ng-template>
+                        <ion-datetime id="fromDatetime" presentation="date"
+                          (ionChange)="onDateTimeChange($event, 'from')"></ion-datetime>
+
+                      </ng-template>
+
+                    </ion-modal> <ion-icon name="calendar-outline" class="calendar-icon" type="date"></ion-icon>
+                  </div>
+
+
+                  <div class="filter-box">
+                    <p class="para-txt">To:</p>
+                    <ion-datetime-button class="date" datetime="toDatetime"></ion-datetime-button>
+                    <ion-modal [keepContentsMounted]="true">
+                      <ng-template>
+                        <ion-datetime id="toDatetime" presentation="date"
+                          (ionChange)="onDateTimeChange($event, 'to')"></ion-datetime>
+                      </ng-template>
+                    </ion-modal><ion-icon name="calendar-outline" class="calendar-icon"></ion-icon>
+                  </div>
+
+                  <!-- Credit/Debit Filter Buttons -->
+                  <p>Filter by Type</p>
+                  <div class="credit-debits">
+                    <button class="credit" (click)="filterByType('credit')">
+                      Credited
+                    </button>
+                    <button class="debit" (click)="filterByType('debit')">
+                      Debited
+                    </button>
+                  </div>
+
+                  <ion-col>
+                    <p>Filter by Amount</p>
+                    <ion-toolbar class="search-items inputamount">
+                      <ion-searchbar placeholder="Search amount" (ionInput)="filterByAmount($event)"
+                        class="searchamount"></ion-searchbar>
+                      <ion-button (click)="filterAmount()">search</ion-button>
+                    </ion-toolbar>
+                  </ion-col>
+                </ion-content>
+              </ng-template>
+
+            </ion-popover>
+          </button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Transactions List -->
+    <div class="ion-fx ion-justify-content-between ion-padding-top navbar-margin-top">
+      <h4>All Transactions</h4>
+    </div>
+
+    <div *ngFor="let transaction of filteredData ; let i = index" (click)="walletHistoryToRecipt(i)">
+      <ion-row>
+        <ion-col size="12" class="">
+          <ion-list class="ion-no-margin ion-no-padding">
+            <ion-item class="ion-no-padding transaction-card">
+
+              <!-- Conditional SVG Rendering -->
+              <ng-container *ngIf="transaction.type === 'credit'; else debitIcon">
+
+                <div class="svgbg">
+                  <img src="../../../../assets/images/svgs/credit.svg" alt="Credit" class="credit-icon">
+                </div>
+              </ng-container>
+              <ng-template #debitIcon>
+                <div class="svgbg">
+                  <img src="../../../../assets/images/svgs/debit.svg" alt="Debit" class="debit-icon">
+                </div>
+              </ng-template>
+
+              <!-- <ion-icon name="cash" class="ion-padding-end"></ion-icon> -->
+              <ion-label class="ion-padding-start">
+                <h3>{{ transaction.paidTo }}</h3>
+                <!-- <p>{{ transaction.date | slice:0:24 }}</p> -->
+                <!-- <p>{{ transaction.date | date:'dd MMM, yyyy' }}</p> -->
+                <p>{{ transaction.date | date:'dd MMM, yyyy, h:mm a' }}</p>
+              </ion-label>
+              <!-- <ion-text [color]="transaction.type === 'credit' ? 'success' : 'danger'" class="ion-no-padding"> -->
+              <ion-text class="ion-no-padding">
+                <!-- {{ transaction.type === 'credit' ? '+' : '-' }}  -->
+                ₹ {{ transaction.amount.toFixed(2) }}
+              </ion-text>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-grid>
+</ion-content>

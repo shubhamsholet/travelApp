@@ -1,0 +1,42 @@
+.skipBtn {
+    --background: none !important;
+    --box-shadow: none !important;
+    --color: black !important;
+    text-transform: none !important;
+}
+
+ion-content {
+    form {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .feedHeading {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .starArea {
+        gap: 1.5rem;
+
+        ion-icon {
+            font-size: 1.5rem;
+        }
+
+        .ratingColor {
+            color: orange;
+        }
+    }
+
+    .feedbackSelect {
+        min-height: 73px;
+    }
+
+
+}
+
+::ng-deep {
+    .multiple-select-alert {
+        --max-width: 80%;
+    }
+}

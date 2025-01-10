@@ -1,0 +1,125 @@
+<!-- <ion-card>
+  <ion-card-header>
+    <ion-row>
+      <ion-col>
+        <div class="travelDetails">
+          <p>Source</p>
+          <div class="location">
+            <div class="locationIcon">
+              <svg width="17" height="19" viewBox="0 0 17 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.875 8.3125C9.875 8.94239 9.62478 9.54648 9.17938 9.99188C8.73398 10.4373 8.12989 10.6875 7.5 10.6875C6.87011 10.6875 6.26602 10.4373 5.82062 9.99188C5.37522 9.54648 5.125 8.94239 5.125 8.3125C5.125 7.68261 5.37522 7.07852 5.82062 6.63312C6.26602 6.18772 6.87011 5.9375 7.5 5.9375C8.12989 5.9375 8.73398 6.18772 9.17938 6.63312C9.62478 7.07852 9.875 7.68261 9.875 8.3125Z"
+                  stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M13.4375 8.3125C13.4375 13.9666 7.5 17.2188 7.5 17.2188C7.5 17.2188 1.5625 13.9666 1.5625 8.3125C1.5625 6.73778 2.18806 5.22755 3.30155 4.11405C4.41505 3.00056 5.92528 2.375 7.5 2.375C9.07472 2.375 10.5849 3.00056 11.6984 4.11405C12.8119 5.22755 13.4375 6.73778 13.4375 8.3125Z"
+                  stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <b>
+              {{ userInfo["from"] }}
+            </b>
+          </div>
+          <p>{{ userInfo["time"] }}</p>
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-center timeSection">
+        <div class="totalTimeTakenArea">
+          <div class="timeBox">
+            {{ userInfo["duration"] }}
+          </div>
+
+          <div class="arrowIcon">
+            <svg viewBox="0 0 68 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M62.3828 1.71362L66.4496 6.41817M66.4496 6.41817L62.3828 11.1227M66.4496 6.41817H0.839233"
+                stroke="#BAD4DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col class="ion-text-end">
+        <div class="travelDetails">
+          <p>Destination</p>
+          <p class="location ion-justify-content-end"> 
+            <b>
+              {{ userInfo["to"] }}
+            </b>
+          </p>
+          <p>{{ calculateEndTime(userInfo)}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card-header>
+  <div class="divider"></div>
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+        <div class="userInfo">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" [src]="userInfo['riderpicture']" />
+          </ion-avatar>
+          <div class="details">
+            <p>Offer ride</p>
+            <div>{{ userInfo["ridername"] }}</div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="seatPriceSection">
+          <div class="price">₹ {{ userInfo["price"] }}</div>
+          <ion-item lines="none">
+            <ion-badge class="ion-no-margin ion-no-padding" slot="end">
+              {{ userInfo["seatAvl"] }}</ion-badge>
+            <ion-label>
+              <svg width="28" height="32" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.4425 0.640015C9.61842 0.640015 8.8817 1.17148 8.62126 1.95376L8.19376 3.23376C7.78594 4.45911 8.72475 5.76002 10.0163 5.76002H10.8V7.68002H9.18751C7.46944 7.68002 5.9501 8.81659 5.44001 10.47V10.4713L3.95501 15.2925C3.23798 17.6208 2.96776 18.8969 3.21126 21.37L3.37876 23.0725C3.2187 23.0535 3.05775 23.04 2.89501 23.04C1.49897 23.04 0.390377 24.2773 0.581264 25.655L0.853763 27.6113C0.957027 28.3528 1.41987 28.997 2.08751 29.34L5.51001 31.0988C5.84329 31.2702 6.21316 31.36 6.58876 31.36H21.4113C21.7869 31.36 22.1568 31.2706 22.49 31.0988L25.9113 29.34C26.5789 28.997 27.043 28.3528 27.1463 27.6113L27.4175 25.655C27.6093 24.2772 26.5011 23.04 25.105 23.04C24.9423 23.04 24.7814 23.0535 24.6213 23.0725L24.7875 21.37C25.031 18.8969 24.7608 17.6208 24.0438 15.2925L22.5588 10.4713C22.05 8.81722 20.5294 7.68002 18.8113 7.68002H17.2V5.76002H17.9838C19.2753 5.76002 20.2141 4.45911 19.8063 3.23376L19.3788 1.95376V1.95251C19.1182 1.17121 18.3813 0.640015 17.5575 0.640015H10.4425ZM10.4425 1.92001H17.5575C17.8355 1.92001 18.0771 2.0936 18.165 2.35751L18.5913 3.63751C18.7351 4.06977 18.4394 4.48001 17.9838 4.48001H10.0163C9.56057 4.48001 9.26489 4.06977 9.40876 3.63751L9.83501 2.35751C9.92273 2.09404 10.1645 1.92001 10.4425 1.92001ZM12.08 5.76002H15.92V7.68002H12.08V5.76002ZM9.1875 8.96002H18.8113C19.9668 8.96002 20.9874 9.71756 21.335 10.8475L22.82 15.6688C23.5276 17.9664 23.7451 18.895 23.5138 21.245L23.2963 23.4613C22.9673 23.6237 22.6599 23.8311 22.3838 24.08L22.065 24.3663C21.8076 24.5971 21.4583 24.6907 21.12 24.615H21.1188C19.6319 24.2832 16.9826 23.6263 14.0013 23.6263C11.0198 23.6263 8.36887 24.2839 6.88251 24.615C6.54283 24.6909 6.19246 24.5981 5.93626 24.3675L5.61626 24.0788V24.08C5.33954 23.831 5.03182 23.6238 4.70251 23.4613L4.48501 21.245C4.25363 18.895 4.47115 17.9664 5.17876 15.6688L6.66376 10.8475C7.01255 9.71692 8.03198 8.96002 9.1875 8.96002ZM14.005 10.88C12.2958 10.878 10.5487 11.2283 9.6525 12.3963C9.4654 12.6401 9.39574 12.868 9.3075 13.1638C9.21927 13.4595 9.13881 13.8108 9.06125 14.2113C8.90613 15.0122 8.765 16.0076 8.64375 17.0675C8.40126 19.1873 8.24 21.5467 8.24 23.04H9.52C9.52 21.6411 9.67875 19.2899 9.91625 17.2138C10.035 16.1757 10.1739 15.2019 10.3188 14.4538C10.3912 14.0797 10.4657 13.7622 10.535 13.53C10.6043 13.2978 10.6946 13.1397 10.6675 13.175C11.0712 12.6489 12.52 12.1583 14.0038 12.16C15.4875 12.1617 16.9356 12.6577 17.3325 13.175C17.3054 13.1397 17.3957 13.2978 17.465 13.53C17.5343 13.7622 17.6088 14.0797 17.6813 14.4538C17.8261 15.2019 17.965 16.1757 18.0838 17.2138C18.3213 19.2899 18.48 21.6411 18.48 23.04H19.76C19.76 21.5467 19.5987 19.1873 19.3563 17.0675C19.235 16.0076 19.0939 15.0122 18.9388 14.2113C18.8612 13.8108 18.7807 13.4595 18.6925 13.1638C18.6043 12.868 18.5346 12.6401 18.3475 12.3963C17.456 11.2342 15.7142 10.882 14.005 10.88ZM2.895 24.32C3.58738 24.32 4.25287 24.575 4.76 25.0313H4.76125L5.08 25.3188C5.42862 25.6325 5.86547 25.783 6.32 25.8488V30.015C6.24525 29.9952 6.16523 29.9968 6.09625 29.9613H6.095L2.6725 28.2025C2.36862 28.0464 2.16647 27.7597 2.12125 27.435L1.84875 25.4788C1.76315 24.861 2.23792 24.32 2.895 24.32ZM25.105 24.32C25.7621 24.32 26.236 24.8611 26.15 25.4788L25.8775 27.435C25.8323 27.7597 25.6301 28.0464 25.3263 28.2025L21.9037 29.9613H21.9025C21.8343 29.9965 21.7543 29.9953 21.68 30.015V25.8475C22.1348 25.7818 22.571 25.6318 22.92 25.3188L23.2412 25.0313C23.7468 24.5755 24.4126 24.32 25.105 24.32ZM14.0013 24.9063C16.5851 24.9063 18.8591 25.4261 20.4 25.7738V30.08H7.6V25.7738C9.14128 25.4264 11.4174 24.9063 14.0013 24.9063Z"
+                  fill="#BAD4DA" />
+              </svg>
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card> -->
+
+
+<ion-card class="newcard">
+  <ion-row class="primary top">
+    <div class="showSeat">
+      {{userInfo["seatAvl"]}} seat left
+    </div>
+  </ion-row>
+  <ion-row class="middlePart">
+    <div class="userdetail">
+      <img [src]="userInfo['riderpicture'] ? userInfo['riderpicture'] : '../../../assets/icon/user.png'"
+        alt="User Picture" />
+
+      <p class="username">
+        <strong> {{userInfo["ridername"]}}</strong>
+      </p>
+      <ion-row class="ion-align-items-end ion-justify-content-center ">
+        <ion-col class="gold-rush">
+          <p class="d-flex"> <ion-icon name="star"></ion-icon> 4.5</p>
+        </ion-col>
+
+        <ion-col>
+          <p class="d-flex ion-justify-content-end"> <ion-icon name="car-sport"></ion-icon> {{userInfo["vehicle"]}}</p>
+        </ion-col>
+
+      </ion-row>
+
+    </div>
+  </ion-row>
+  <ion-row class="ion-justify-content-between ion-padding-horizontal ion-padding-bottom bottomPnl">
+    <ion-col>
+      <p class="d-flex"> <ion-icon name="timer"></ion-icon> {{userInfo["time"]}}</p>
+    </ion-col>
+    <ion-col class="ion-text-end wallet">
+      <p class="d-flex ion-justify-content-end"> <ion-icon name="wallet"></ion-icon> {{userInfo["price"]}} Rs</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="primary bottom">
+    <p> <strong>view details</strong></p>
+  </ion-row>
+</ion-card>

@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="end" class="skipBtn ion-no-padding ion-no-margin ion-margin-end" (click)="onSkip()">
+      Skip>>
+    </ion-button>
+    <ion-title>feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+    <p class="ion-text-center feedHeading">How was your ride?</p>
+    <ion-row class="ion-justify-content-center starArea">
+      <div *ngFor="let star of stars; let i = index" class="w-fit">
+        <ion-icon [name]="filledStars[i] ? 'star' : 'star-outline'" (click)="onStarClick(i)"
+          [class.ratingColor]="filledStars[i]"></ion-icon>
+      </div>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ng-container *ngIf="star === 5">
+        <b>EXCELLENT</b>
+      </ng-container>
+      <ng-container *ngIf="star === 4 ">
+        <b>GOOD</b>
+      </ng-container>
+      <ng-container *ngIf="star === 3 ">
+        <b>NEUTRAL</b>
+      </ng-container>
+      <ng-container *ngIf="star === 2 ">
+        <b>BAD</b>
+      </ng-container>
+      <ng-container *ngIf="star === 1">
+        <b>WORST</b>
+      </ng-container>
+    </ion-row>
+
+    <ion-row class="ion-margin-top">
+      <ion-select formControlName="feedbackOptions" label="Select Desired Feedback" label-placement="floating"
+        fill="outline" multiple="true">
+        <ion-select-option value="rough driving">Rough Driving</ion-select-option>
+        <ion-select-option value="misbehave">Misbehave</ion-select-option>
+        <ion-select-option value="drunk">Drunk</ion-select-option>
+        <ion-select-option value=" Good Driving">Good Driving</ion-select-option>
+        <ion-select-option value="Good Behaviour">Good Behaviour</ion-select-option>
+      </ion-select>
+    </ion-row>
+
+    <ion-row class="ion-margin-vertical">
+      <ion-textarea formControlName="comment" label="Add a comment" labelPlacement="floating" rows="5" fill="outline"
+        placeholder="Enter text"></ion-textarea>
+    </ion-row>
+
+    <ion-button [disabled]="!feedbackForm.get('star')?.value || feedbackForm.get('star')?.value < 0" type="submit"
+      expand="block" class="primary">
+      <span>Submit</span>
+    </ion-button>
+  </form>
+</ion-content>

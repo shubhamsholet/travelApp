@@ -1,0 +1,90 @@
+.filterArea {
+    max-width: fit-content;
+
+    div {
+        padding: 0.8rem;
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        background-color: #DCEEF2;
+        width: fit-content;
+
+        svg {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+}
+
+.backBtn {
+    max-width: 2rem;
+    display: flex;
+    align-items: center;
+
+    ion-icon {
+        font-size: 4.5rem;
+    }
+}
+
+.backBtnIcon {
+    font-size: 1.5rem;
+}
+
+.loc-icon {
+    background-color: #0075fd;
+    border-radius: 1rem;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    align-content: center;
+}
+
+.loc-icon ion-icon {
+    color: white;
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.top-pnl .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.top-pnl {
+    border-bottom: 1px solid gray;
+    padding: 0 1rem;
+    position: relative;
+    box-shadow: 1px 0px 2px 0px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+.no-rides-message {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+.no-rides-message ion-icon {
+    font-size: 2em;
+    color: #aaa;
+}
+
+.truncated-text {
+    width: 275px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.line {
+    background: #0075fd;
+    width: 0.25rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 2.8rem;
+    left: 2.2rem;
+}

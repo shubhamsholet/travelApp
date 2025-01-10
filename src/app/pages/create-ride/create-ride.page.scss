@@ -1,0 +1,187 @@
+.rideDetails {
+    form {
+        max-width: 450px;
+        margin: auto;
+    }
+
+    .formInput {
+        border: 2px solid #BAD4DA;
+        padding: 0.6rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 15px;
+        color: black;
+        background: rgba(221, 247, 247, 0.7019607843);
+
+        input {
+            background-color: transparent;
+            max-width: -webkit-fill-available;
+            // text-align: end;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+    }
+
+    .tofrom {
+        margin: auto;
+    }
+
+    .dateTime {
+        display: flex;
+        justify-content: space-between;
+        // width: fit-content;
+        margin: auto;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .seatAvl {
+        margin: auto;
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        input {
+            background-color: transparent;
+            text-align: left;
+            max-width: 130px;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        ion-button {
+            --background: transparent;
+            --box-shadow: none;
+            color: black;
+        }
+
+        .decBtn {
+            border-right: 4px solid white;
+        }
+
+    }
+
+    .price {
+        margin: auto;
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .companionNames {
+        margin-top: 1rem;
+    }
+
+    /* For Webkit browsers (Chrome, Safari, Edge, Opera) */
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* For Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    input:focus-visible {
+        outline: none;
+        // text-decoration: underline;
+        --border-bottom: 2px solid blue;
+        // text-underline-offset: 6px
+    }
+
+
+    .submit {
+        margin-top: 1rem;
+    }
+}
+
+::ng-deep {
+    p {
+        margin: 0 !important;
+    }
+}
+
+ion-radio-group {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    margin-bottom: 2rem;
+
+}
+
+ion-radio::part(container) {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -2.5rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+ion-radio::part(mark) {
+    background: none;
+    transition: none;
+    transform: none;
+    border-radius: 0;
+}
+
+ion-radio.radio-checked::part(container) {
+    background: green;
+    position: absolute;
+    left: -2.5rem;
+    border-color: transparent;
+}
+
+ion-radio.radio-checked::part(mark) {
+    width: 6px;
+    height: 10px;
+
+    border-width: 0px 2px 2px 0px;
+    border-style: solid;
+    border-color: #fff;
+
+    transform: rotate(45deg);
+}
+
+@media screen and (max-width: 424px) {
+
+    .seatAvl {
+        input {
+            max-width: 80px !important;
+        }
+    }
+
+    .price input {
+        max-width: 7.8rem !important;
+    }
+}
+
+.errorHere {
+    color: red;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border-bottom: 2px solid;
+}
+
+.errorHere span {
+    font-size: 2rem;
+}
+
+.dropdown {
+    border: 2px solid #BAD4DA;
+    padding: 0.6rem;
+    background: rgba(221, 247, 247, 0.7019607843);
+    margin-top: 1rem;
+    width: 100%;
+    color: black;
+    border-radius: 15px;
+}

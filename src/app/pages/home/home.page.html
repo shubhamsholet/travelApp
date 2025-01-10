@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-row class="ion-align-items-center ion-padding-start">
+      <ion-icon name="chevron-back-outline" class="backBtnIcon" [routerLink]="['/search']"
+        routerLinkActive="router-link-active"></ion-icon>
+      <ion-title>Select your Ride</ion-title>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="">
+
+  <ion-row class="top-pnl">
+    <ion-col size="12">
+      <div class="d-flex">
+        <div class="loc-icon"><ion-icon name="location"></ion-icon></div>
+        <p class="truncated-text">{{searchData.from}}</p>
+      </div>
+    </ion-col>
+    <div class="line"></div>
+    <ion-col size="12">
+      <div class="d-flex">
+        <div class="loc-icon"><ion-icon name="pin"></ion-icon></div>
+        <p class="truncated-text">{{searchData.to}}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="filteredRides.length > 0; else noRidesAvailable">
+    <app-ride-card [userInfo]="ride" *ngFor="let ride of filteredRides;let i = index "
+      (click)="rideDetailView(i)"></app-ride-card>
+  </div>
+  <ng-template #noRidesAvailable>
+    <div class="no-rides-message">
+      <ion-icon name="sad-outline"></ion-icon>
+      <p>No rides available at the moment.</p>
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,56 @@
+.wallet-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-icon-size {
+    font-size: 2rem;
+    background: #80808085;
+    border-radius: 20px;
+    padding: 0.3rem;
+}
+
+.custom-avatar-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0054e9;
+}
+
+.custom-avatar-bg img {
+    width: 18px;
+    height: 1.5rem;
+}
+
+.custom-font-subtitle {
+    font-size: 18px;
+}
+
+.custom-font-title {
+    font-size: 24px;
+}
+
+ion-input img {
+    width: 1rem;
+}
+
+.input-box {
+    border-bottom: 3px solid blue;
+    font-size: 30px;
+}
+
+.input-box img {
+    filter: invert(1);
+    width: 2rem;
+}
+
+.next-btn {
+    font-size: 17px;
+}
+
+.viewAll {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+}

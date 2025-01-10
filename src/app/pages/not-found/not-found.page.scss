@@ -1,0 +1,86 @@
+.notFound {
+    background: #121722;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        max-width: 1280px;
+
+        .contentBox {
+            max-width: 640px;
+            text-align: center;
+            margin: auto;
+
+            h1 {
+                margin-bottom: 1rem;
+                font-size: 4.5rem;
+                line-height: 1;
+                font-weight: 800;
+                letter-spacing: -0.025em;
+                color: #3573F0;
+            }
+
+            .text1 {
+                margin-bottom: 1rem;
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+                font-weight: 700;
+                letter-spacing: -0.025em;
+            }
+
+            .text2 {
+                margin-bottom: 1rem;
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+                font-weight: 300;
+            }
+
+            button {
+                display: inline-flex;
+                padding-top: 0.625rem;
+                padding-bottom: 0.625rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                border-radius: 0.5rem;
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+                font-weight: 500;
+                text-align: center;
+                color: #ffffff;
+                background: var(--primary-btn)
+            }
+        }
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .notFound {
+        .container {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+
+            .contentBox {
+                h1 {
+                    font-size: 8rem;
+                    line-height: 1;
+                }
+
+                .text1 {
+                    font-size: 2.25rem;
+                    line-height: 2.5rem;
+                }
+            }
+        }
+    }
+}

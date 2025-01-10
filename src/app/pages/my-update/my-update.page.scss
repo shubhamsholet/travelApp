@@ -1,0 +1,191 @@
+::ng-deep {
+    ion-col {
+
+        min-height: auto;
+    }
+}
+
+ion-card {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 25px 2px,
+        rgba(0, 0, 0, 0.14) 1px 3px 7px -2px,
+        rgba(0, 0, 0, 0.12) -12px 12px 21px 0px;
+
+
+    .travelDetails {
+
+        p:first-child {
+            font-weight: 700;
+            font-size: 12px;
+            color: #33A05E;
+            padding-left: 1.7rem;
+        }
+
+        p:last-child {
+            color: #BAD4DA;
+            font-weight: 700;
+            font-size: 12px;
+            padding-left: 1.7rem;
+        }
+
+        .location {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 0;
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+
+            .locationIcon svg {
+                height: 1.5rem;
+                width: 1.5rem;
+                color: #D3E3E7;
+            }
+        }
+    }
+
+    .timeSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .totalTimeTakenArea {
+            width: 8rem;
+            height: fit-content;
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            .timeBox {
+                width: fit-content;
+                height: fit-content;
+                background-color: #a9aeb7;
+                padding: 0.1rem 0.5rem;
+                border-radius: 1rem;
+                color: #33666C;
+                font-size: 11px;
+            }
+
+            .arrowIcon svg {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                height: 1rem;
+                top: 10%;
+                z-index: -1;
+
+            }
+
+        }
+    }
+
+    .divider {
+        height: 0.1rem;
+        background-color: #D3E3E7;
+        width: 100%;
+    }
+
+    .userInfo {
+        display: flex;
+        gap: 1rem;
+
+        ion-avatar {
+            --border-radius: 15%;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            p {
+                font-size: 11px;
+            }
+
+            div {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .seatPriceSection {
+        display: flex;
+        align-items: center;
+        // gap: 1rem;
+        justify-content: end;
+
+        .price {
+            padding: 0.1rem 0.5rem;
+            background-color: #279657;
+            color: white;
+            font-size: 16px;
+            border-radius: 1rem;
+        }
+
+        ion-badge {
+            // background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 0.2rem 0.7rem;
+            border-radius: 1rem;
+        }
+    }
+
+}
+
+// .location.end {
+//     justify-content: flex-end;
+// }
+
+.pin-img {
+    max-width: 1.5rem;
+}
+
+.location b {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+ion-row.ion-padding-horizontal.md {
+    display: flex;
+    flex-direction: column;
+}
+
+.red-filter {
+    filter: grayscale(100%) sepia(100%) hue-rotate(-50deg) saturate(10000%);
+}
+
+.round {
+    padding: 0 0.3rem;
+}
+
+.svg-container {
+    max-width: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.location {
+    gap: 0.5rem;
+}
+
+.ride-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ride-detail p {
+    margin: 0.5rem 0;
+}
+
+.ride-detail-container {
+    padding-top: 1rem;
+    border-top: 2px dashed #80808038;
+}
+
+.dest-container {
+    margin-bottom: 1rem;
+}

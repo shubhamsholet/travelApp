@@ -1,0 +1,28 @@
+<ion-button slot="end" color="none" (click)="closeModal()" class="cancelBtn">
+  <ion-icon name="close" color="dark"></ion-icon>
+</ion-button>
+<ion-content>
+  <form (ngSubmit)="updateRide(rideForm)" #rideForm="ngForm" class="ion-padding-top">
+
+    <!-- Price Input -->
+    <ion-item>
+      <ion-label position="floating">Price</ion-label>
+      <ion-input type="number" [(ngModel)]="price" name="price" required></ion-input>
+    </ion-item>
+
+    <!-- Seat Availability Input -->
+    <ion-item>
+      <ion-label position="floating">Seat Availability</ion-label>
+      <ion-input type="number" [(ngModel)]="seatAvl" min="1" max="6" name="seatAvl" required></ion-input>
+    </ion-item>
+
+    <!-- Time Input -->
+    <ion-item>
+      <ion-label position="floating">Time</ion-label>
+      <ion-input type="time" [(ngModel)]="time" name="time" required></ion-input>
+    </ion-item>
+
+    <!-- Submit Button -->
+    <ion-button expand="full" type="submit" class="success" [disabled]="!rideForm.form.valid">Submit</ion-button>
+  </form>
+</ion-content>

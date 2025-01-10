@@ -1,0 +1,206 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <div class="photo">
+        <ion-avatar slot="start">
+          @if (currentUser.profilePicture) {
+          <img [src]="currentUser.profilePicture" alt="User Photo" />
+          }
+          @else if (uploadedFileUrl){ <img [src]="uploadedFileUrl" alt="Uploaded Image" />}
+
+          @else {
+          <img src="../../../../assets/images/svgs/person.svg" alt="User Photo" />
+          }
+        </ion-avatar>
+        <div class="detail">
+          <ion-card-title>{{currentUser.userName}}</ion-card-title>
+          <ion-card-subtitle (click)="toRating()">
+            @if (RoundOfStar) {
+            <div>
+              <ion-label *ngIf="averageStars" color="primary">
+                <div class="stars">
+                  <ion-icon *ngFor="let star of [].constructor(5); let i = index"
+                    [name]="i < (RoundOfStar) ? 'star' : 'star-outline'" color="warning">
+                  </ion-icon>
+                </div>
+              </ion-label>
+            </div>
+            }@else {
+            <div class="rating">No rating yet</div>
+            }
+          </ion-card-subtitle>
+        </div>
+      </div>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding ion-padding-bottom">
+      <!-- @if (!currentUser.profilePicture) { -->
+      <ion-item lines="none" (click)="toggleUploadOption()">
+        <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+        <ion-label color="primary">Change profile picture</ion-label>
+      </ion-item>
+      @if (showUploadOption) {
+      <ion-item lines="none">
+        <ion-input type="file" fill="outline" placeholder="Upload now" name="profilePicture" required
+          (input)="onFileSelected($event) ">
+        </ion-input>
+        <ion-button (click)="uploadFile()" class="ion-padding">Upload</ion-button>
+      </ion-item>
+
+
+      <ion-content>
+        <div *ngIf="uploadedFileUrl">
+          <img [src]="uploadedFileUrl" alt="Uploaded Image" />
+        </div>
+      </ion-content>
+
+
+      }
+      <ion-item button lines="none" (click)="openEditCard(false,true) ">
+        <ion-icon slot="start" name="create"></ion-icon>
+        <ion-label color="primary">Edit personal details</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Verify your profile</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-no-padding ion-padding-bottom">
+      <ion-item lines="none" (click)="openEditCard(false,true) ">
+        <ion-icon slot="start" [color]="isGovtIdVerified? 'success':'medium'"
+          [name]="isGovtIdVerified ? 'checkmark-circle-outline' : 'add-circle-outline'"></ion-icon>
+        <!-- <ion-label *ngIf="!isGovtIdVerified" color="primary">
+          Verify your Govt. ID
+        </ion-label> -->
+        <ion-label *ngIf="!isGovtIdVerified" color="primary">
+          Verify your Govt. ID
+        </ion-label>
+        <ion-label *ngIf="isGovtIdVerified" color="primary">
+          Govt. ID Verified
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none" (click)="EmailVerification()">
+        <ion-icon slot="start" [color]="isEmailVerified ? 'success' : 'medium'"
+          [name]="isEmailVerified ? 'checkmark-circle-outline' : 'add-circle-outline'">
+        </ion-icon>
+        <ion-label *ngIf="!isEmailVerified" color="primary">
+          Confirm email {{ currentUser.userEmail }}
+        </ion-label>
+        <ion-label *ngIf="isEmailVerified" color="primary">
+          {{ currentUser.userEmail }}
+        </ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon slot="start" [color]="isPhoneVerified? 'success':'medium'"
+          [name]="isPhoneVerified ? 'checkmark-circle-outline' : 'add-circle-outline'"></ion-icon>
+        <ion-label *ngIf="!isPhoneVerified" color="primary">
+          Confirm phone number {{currentUser.phone}}
+        </ion-label>
+        <ion-label *ngIf="isPhoneVerified" color="primary">
+          {{currentUser.phone}}
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Vehicles</ion-card-title>
+    </ion-card-header>
+
+
+    <ion-card-content class=" ion-no-padding ion-padding-bottom">
+      <ng-container *ngIf="vehicle && vehicle.length > 0;  ">
+        <ng-container *ngFor="let item of vehicle; let i = index">
+
+          <!-- 
+          <div class="vehicle">
+            <ion-item lines="none">
+              <ion-label color="primary">Type: {{item.vehicleType}}</ion-label>
+              <ion-label color="primary">Name: {{item.vehicleName}}</ion-label>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label color="primary">Vehicle Number: {{item.vehicleNumber}}</ion-label>
+              <ion-label color="primary">Vehicle Color: {{item.vehicleColor}}</ion-label>
+            </ion-item>
+
+            <div class="updateBtn">
+
+              <ion-button class="success" (click)="editVehicle(i)">
+                <span>Edit Vehicle</span>
+              </ion-button>
+              <ion-button class="danger" (click)="deleteVehicle(i)">
+                <span>Delete Vehicle</span>
+              </ion-button>
+            </div>
+          </div> -->
+
+          <ion-card>
+            <ion-row class="vehicleDetail">
+              <ion-col>
+                <div>
+                  <h1 class="head"><span> {{item.vehicleName}}</span> <span><ion-icon name="car-sport-outline"
+                        class="vehicleIcon"></ion-icon></span></h1>
+                  <div class="d-flex">
+                    <p>{{item.vehicleType}}</p>
+                    <p class="border"> | {{item.vehicleColor}} |</p>
+                    <p>{{item.vehicleNumber}}</p>
+                  </div>
+                </div>
+                <div class="d-flex ion-margin-top"> <button (click)="editVehicle(i)" class="vehicle-btn">
+                    Edit Vehicle
+                  </button>
+                  <button (click)="deleteVehicle(i)" class="vehicle-btn deletBtn">
+                    Delete Vehicle
+                  </button>
+                </div>
+              </ion-col>
+              <!-- <ion-col class="vehicleIconContainer">
+                <ion-icon name="car" class="vehicleIcon"></ion-icon>
+              </ion-col> -->
+
+            </ion-row>
+            <ion-row>
+              <div class="updateBtn">
+
+
+
+                <!-- <ion-button class="success" (click)="editVehicle(i)">
+                  <span>Edit Vehicle</span>
+                </ion-button>
+                <ion-button class="danger" (click)="deleteVehicle(i)">
+                  <span>Delete Vehicle</span>
+                </ion-button> -->
+              </div>
+            </ion-row>
+          </ion-card>
+
+        </ng-container>
+
+      </ng-container>
+
+
+      <ng-container>
+        <ion-item lines="none" (click)="openEditCard(true,false)">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          <ion-label color="primary">Add vehicle</ion-label>
+        </ion-item>
+      </ng-container>
+
+      <!-- <ion-button class="success" (click)="openEditCard(true)">
+        <span>Add Vehicle</span>
+      </ion-button> -->
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

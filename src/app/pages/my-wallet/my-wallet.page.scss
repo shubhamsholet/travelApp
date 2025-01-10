@@ -1,0 +1,168 @@
+.photo {
+    display: flex;
+    align-items: center;
+
+    ion-avatar {
+        img {
+            padding: 5px;
+            // border: 2px solid green;
+        }
+    }
+
+    .detail {
+        margin-left: 10px;
+        color: white;
+    }
+}
+
+ion-card-content {
+    ion-icon {
+        margin-inline-end: 12px;
+    }
+}
+
+.ion-fx {
+    display: flex;
+}
+
+.main-content {
+    padding: 16px;
+
+}
+
+.features-box {
+    // background-color: #270685;
+    background: #1cd8d2;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1cd8d2, #93edc7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1cd8d2, #93edc7);
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: #6F45E9;
+    padding: 16px;
+    border-radius: 8px;
+    color: white;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.balance-card {
+    border-radius: 12px;
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.balance-card-container {
+    background-color: #6a61a1;
+    // background: linear-gradient(to right, #331098, #5033A4);
+    background: #50c9c3;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #50c9c3, #96deda);
+
+}
+
+.balance-card h1 {
+    font-size: 2.5em;
+    margin: 8px 0;
+}
+
+.ion-img {
+    width: 2rem;
+}
+
+.actions {
+    margin-top: 16px;
+}
+
+.action {
+    text-align: center;
+}
+
+.transfers-scroll {
+    display: flex;
+}
+
+.transfers {
+    display: flex;
+    align-items: center;
+}
+
+.transfer-avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.transfer-avatar ion-icon {
+    font-size: 3em;
+}
+
+ion-list {
+    background: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+ion-item {
+    --background: none;
+}
+
+ion-item h3 {
+    margin: 0;
+}
+
+ion-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: gray;
+}
+
+ion-item ion-text {
+    font-size: 1em;
+}
+
+
+.transaction-card {
+    gap: 1rem;
+}
+
+.rupiya-icon img {
+    width: 2rem;
+}
+
+.rupiya-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Wallmart */
+.transaction-box {
+    padding: 0 1rem;
+}
+
+::ng-deep .item-inner {
+    padding: 0;
+}
+
+.svgbg {
+    background-color: #F6F6F6;
+    border-radius: 1.5rem;
+    display: flex;
+    padding: 0.3rem;
+    align-items: center;
+}
