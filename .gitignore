@@ -77,3 +77,7 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+# Ignore Google Services JSON
+google-services.json
+google-services-office.json
