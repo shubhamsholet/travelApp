@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "shubham.sholet@paavu.com": {
+        "profilePicture": "https://lh3.googleusercontent.com/a/ACg8ocL13r6ZNdJKOi6XRnVuHCVIR6ozMda-5NEr8u2TgeiP-NpuLg=s96-c",
+        "userEmail": "shubham.sholet@paavu.com",
+        "userName": "Shubham Sholet",
+        "password": "",
+        "cpassword": "",
+        "phone": "",
+        "pickUpLocation": "",
+        "dropLocation": "",
+        "isSocialLogin": true,
+        "email_verified": true
+      }
+    },
+    {
+      "yogesh.tiwari@paavu.com": {
+        "profilePicture": "https://lh3.googleusercontent.com/a/ACg8ocK-soA9fgCZmHQGvuHO_ZjoVDIOYNQ9Cnj-2ID34eo0TvwQCAI=s96-c",
+        "userEmail": "yogesh.tiwari@paavu.com",
+        "userName": "Yogesh Tiwari",
+        "password": "",
+        "cpassword": "",
+        "phone": "",
+        "pickUpLocation": "",
+        "dropLocation": "",
+        "isSocialLogin": true,
+        "email_verified": true
+      }
+    },
+    {
+      "yogi.baba@baba.com": {
+        "profilePicture": "",
+        "userEmail": "yogi.baba@baba.com",
+        "userName": "yogi",
+        "password": "baba.com",
+        "cpassword": "12420Y",
+        "phone": "9582467932",
+        "pickUpLocation": "",
+        "dropLocation": "",
+        "isSocialLogin": false,
+        "email_verified": false
+      }
+    },
+    {
+      "nikita.shukla@paavu.com": {
+        "profilePicture": "https://lh3.googleusercontent.com/a/ACg8ocKnsPBYCSXMz8f56NCKg1uRUhVdm8sqBxjF9cfWimKfENOtrw=s96-c",
+        "userEmail": "nikita.shukla@paavu.com",
+        "userName": "Nikita Shukla",
+        "password": "",
+        "cpassword": "",
+        "phone": "",
+        "pickUpLocation": "",
+        "dropLocation": "",
+        "isSocialLogin": true,
+        "email_verified": true
+      }
+    },
+    {
+      "sholetshubham8@gmail.com": {
+        "profilePicture": "https://graph.facebook.com/122136877322273209/picture?type=normal",
+        "userEmail": "sholetshubham8@gmail.com",
+        "userName": "Shubham Sholet",
+        "password": "",
+        "cpassword": "",
+        "phone": "",
+        "pickUpLocation": "",
+        "dropLocation": "",
+        "isSocialLogin": true,
+        "email_verified": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,719 @@
+[
+    {
+        "yogesh.tiwari@paavu.com": {
+            "password": "",
+            "cpassword": "",
+            "phone": "9582467932",
+            "pickUpLocation": "Location A",
+            "dropLocation": "Location B",
+            "isSocialLogin": true,
+            "email_verified": true,
+            "wallet": {
+                "balance": 150.00,
+                "currency": "Rs",
+                "transactions": [
+                    {
+                        "id": "txn1",
+                        "date": "2024-08-06",
+                        "amount": 20.00,
+                        "type": "debit",
+                        "description": "Purchase at Store A",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "shopping",
+                        "sendTo": {
+                            "profilePicture": "https://example.com/john.jpg",
+                            "userEmail": "john.doe@paavu.com",
+                            "userName": "John Doe"
+                        }
+                    },
+                    {
+                        "id": "txn2",
+                        "date": "2024-08-07",
+                        "amount": 50.00,
+                        "type": "credit",
+                        "description": "Refund from Store B",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund",
+                        "sendTo": {
+                            "profilePicture": "https://example.com/john.jpg",
+                            "userEmail": "john.doe@paavu.com",
+                            "userName": "John Doe"
+                        }
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd1",
+                        "date": "2024-08-05",
+                        "amount": 30.00,
+                        "method": "bank transfer",
+                        "status": "completed",
+                        "description": "Withdrawal to Bank A"
+                    }
+                ],
+                "rewardsPoints": 150,
+                "loyaltyTier": "Gold",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "1234567890",
+                        "bankName": "Bank A",
+                        "accountType": "savings",
+                        "balance": 1000.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "1111-2222-3333-4444",
+                        "cardType": "credit",
+                        "expiryDate": "12/25",
+                        "issuer": "Visa",
+                        "balance": 2000.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "jane.doe@paavu.com": {
+            "profilePicture": "https://example.com/jane.jpg",
+            "userEmail": "jane.doe@paavu.com",
+            "userName": "Jane Doe",
+            "password": "",
+            "cpassword": "",
+            "phone": "987-654-3210",
+            "pickUpLocation": "Location C",
+            "dropLocation": "Location D",
+            "isSocialLogin": false,
+            "email_verified": false,
+            "wallet": {
+                "balance": 200.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn3",
+                        "date": "2024-08-08",
+                        "amount": 30.00,
+                        "type": "debit",
+                        "description": "Purchase at Store C",
+                        "status": "completed",
+                        "paymentMethod": "debit card",
+                        "category": "groceries"
+                    },
+                    {
+                        "id": "txn4",
+                        "date": "2024-08-09",
+                        "amount": 70.00,
+                        "type": "credit",
+                        "description": "Refund from Store D",
+                        "status": "completed",
+                        "paymentMethod": "paypal",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd2",
+                        "date": "2024-08-10",
+                        "amount": 40.00,
+                        "method": "ATM",
+                        "status": "completed",
+                        "description": "Withdrawal from ATM"
+                    }
+                ],
+                "rewardsPoints": 200,
+                "loyaltyTier": "Silver",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "2345678901",
+                        "bankName": "Bank B",
+                        "accountType": "checking",
+                        "balance": 1500.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "5555-6666-7777-8888",
+                        "cardType": "debit",
+                        "expiryDate": "01/26",
+                        "issuer": "MasterCard",
+                        "balance": 2500.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "alice.smith@paavu.com": {
+            "profilePicture": "https://example.com/alice.jpg",
+            "userEmail": "alice.smith@paavu.com",
+            "userName": "Alice Smith",
+            "password": "",
+            "cpassword": "",
+            "phone": "555-123-4567",
+            "pickUpLocation": "Location E",
+            "dropLocation": "Location F",
+            "isSocialLogin": true,
+            "email_verified": true,
+            "wallet": {
+                "balance": 300.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn5",
+                        "date": "2024-08-10",
+                        "amount": 10.00,
+                        "type": "debit",
+                        "description": "Purchase at Store E",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "entertainment"
+                    },
+                    {
+                        "id": "txn6",
+                        "date": "2024-08-11",
+                        "amount": 100.00,
+                        "type": "credit",
+                        "description": "Refund from Store F",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd3",
+                        "date": "2024-08-12",
+                        "amount": 50.00,
+                        "method": "bank transfer",
+                        "status": "completed",
+                        "description": "Withdrawal to Bank B"
+                    }
+                ],
+                "rewardsPoints": 300,
+                "loyaltyTier": "Platinum",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "3456789012",
+                        "bankName": "Bank C",
+                        "accountType": "savings",
+                        "balance": 2000.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "9999-0000-1111-2222",
+                        "cardType": "credit",
+                        "expiryDate": "02/27",
+                        "issuer": "American Express",
+                        "balance": 3000.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "bob.jones@paavu.com": {
+            "profilePicture": "https://example.com/bob.jpg",
+            "userEmail": "bob.jones@paavu.com",
+            "userName": "Bob Jones",
+            "password": "",
+            "cpassword": "",
+            "phone": "111-222-3333",
+            "pickUpLocation": "Location G",
+            "dropLocation": "Location H",
+            "isSocialLogin": false,
+            "email_verified": false,
+            "wallet": {
+                "balance": 400.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn7",
+                        "date": "2024-08-12",
+                        "amount": 40.00,
+                        "type": "debit",
+                        "description": "Purchase at Store G",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "electronics"
+                    },
+                    {
+                        "id": "txn8",
+                        "date": "2024-08-13",
+                        "amount": 150.00,
+                        "type": "credit",
+                        "description": "Refund from Store H",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd4",
+                        "date": "2024-08-14",
+                        "amount": 70.00,
+                        "method": "ATM",
+                        "status": "completed",
+                        "description": "Withdrawal from ATM"
+                    }
+                ],
+                "rewardsPoints": 400,
+                "loyaltyTier": "Gold",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "4567890123",
+                        "bankName": "Bank D",
+                        "accountType": "checking",
+                        "balance": 2500.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "3333-4444-5555-6666",
+                        "cardType": "debit",
+                        "expiryDate": "03/28",
+                        "issuer": "Discover",
+                        "balance": 3500.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "charlie.brown@paavu.com": {
+            "profilePicture": "https://example.com/charlie.jpg",
+            "userEmail": "charlie.brown@paavu.com",
+            "userName": "Charlie Brown",
+            "password": "",
+            "cpassword": "",
+            "phone": "444-555-6666",
+            "pickUpLocation": "Location I",
+            "dropLocation": "Location J",
+            "isSocialLogin": true,
+            "email_verified": true,
+            "wallet": {
+                "balance": 500.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn9",
+                        "date": "2024-08-14",
+                        "amount": 50.00,
+                        "type": "debit",
+                        "description": "Purchase at Store I",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "clothing"
+                    },
+                    {
+                        "id": "txn10",
+                        "date": "2024-08-15",
+                        "amount": 200.00,
+                        "type": "credit",
+                        "description": "Refund from Store J",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd5",
+                        "date": "2024-08-16",
+                        "amount": 90.00,
+                        "method": "bank transfer",
+                        "status": "completed",
+                        "description": "Withdrawal to Bank C"
+                    }
+                ],
+                "rewardsPoints": 500,
+                "loyaltyTier": "Platinum",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "5678901234",
+                        "bankName": "Bank E",
+                        "accountType": "savings",
+                        "balance": 3000.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "7777-8888-9999-0000",
+                        "cardType": "credit",
+                        "expiryDate": "04/29",
+                        "issuer": "Visa",
+                        "balance": 4000.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "dave.clark@paavu.com": {
+            "profilePicture": "https://example.com/dave.jpg",
+            "userEmail": "dave.clark@paavu.com",
+            "userName": "Dave Clark",
+            "password": "",
+            "cpassword": "",
+            "phone": "777-888-9999",
+            "pickUpLocation": "Location K",
+            "dropLocation": "Location L",
+            "isSocialLogin": false,
+            "email_verified": false,
+            "wallet": {
+                "balance": 600.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn11",
+                        "date": "2024-08-16",
+                        "amount": 60.00,
+                        "type": "debit",
+                        "description": "Purchase at Store K",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "food"
+                    },
+                    {
+                        "id": "txn12",
+                        "date": "2024-08-17",
+                        "amount": 250.00,
+                        "type": "credit",
+                        "description": "Refund from Store L",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd6",
+                        "date": "2024-08-18",
+                        "amount": 100.00,
+                        "method": "ATM",
+                        "status": "completed",
+                        "description": "Withdrawal from ATM"
+                    }
+                ],
+                "rewardsPoints": 600,
+                "loyaltyTier": "Gold",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "6789012345",
+                        "bankName": "Bank F",
+                        "accountType": "checking",
+                        "balance": 3500.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "1111-2222-3333-4444",
+                        "cardType": "debit",
+                        "expiryDate": "05/30",
+                        "issuer": "MasterCard",
+                        "balance": 4500.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "eva.miller@paavu.com": {
+            "profilePicture": "https://example.com/eva.jpg",
+            "userEmail": "eva.miller@paavu.com",
+            "userName": "Eva Miller",
+            "password": "",
+            "cpassword": "",
+            "phone": "000-111-2222",
+            "pickUpLocation": "Location M",
+            "dropLocation": "Location N",
+            "isSocialLogin": true,
+            "email_verified": true,
+            "wallet": {
+                "balance": 700.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn13",
+                        "date": "2024-08-18",
+                        "amount": 70.00,
+                        "type": "debit",
+                        "description": "Purchase at Store M",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "transport"
+                    },
+                    {
+                        "id": "txn14",
+                        "date": "2024-08-19",
+                        "amount": 300.00,
+                        "type": "credit",
+                        "description": "Refund from Store N",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd7",
+                        "date": "2024-08-20",
+                        "amount": 110.00,
+                        "method": "bank transfer",
+                        "status": "completed",
+                        "description": "Withdrawal to Bank D"
+                    }
+                ],
+                "rewardsPoints": 700,
+                "loyaltyTier": "Platinum",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "7890123456",
+                        "bankName": "Bank G",
+                        "accountType": "savings",
+                        "balance": 4000.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "5555-6666-7777-8888",
+                        "cardType": "credit",
+                        "expiryDate": "06/31",
+                        "issuer": "Visa",
+                        "balance": 5000.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "frank.martin@paavu.com": {
+            "profilePicture": "https://example.com/frank.jpg",
+            "userEmail": "frank.martin@paavu.com",
+            "userName": "Frank Martin",
+            "password": "",
+            "cpassword": "",
+            "phone": "333-444-5555",
+            "pickUpLocation": "Location O",
+            "dropLocation": "Location P",
+            "isSocialLogin": false,
+            "email_verified": false,
+            "wallet": {
+                "balance": 800.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn15",
+                        "date": "2024-08-20",
+                        "amount": 80.00,
+                        "type": "debit",
+                        "description": "Purchase at Store O",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "health"
+                    },
+                    {
+                        "id": "txn16",
+                        "date": "2024-08-21",
+                        "amount": 350.00,
+                        "type": "credit",
+                        "description": "Refund from Store P",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd8",
+                        "date": "2024-08-22",
+                        "amount": 120.00,
+                        "method": "ATM",
+                        "status": "completed",
+                        "description": "Withdrawal from ATM"
+                    }
+                ],
+                "rewardsPoints": 800,
+                "loyaltyTier": "Gold",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "8901234567",
+                        "bankName": "Bank H",
+                        "accountType": "checking",
+                        "balance": 4500.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "9999-0000-1111-2222",
+                        "cardType": "debit",
+                        "expiryDate": "07/32",
+                        "issuer": "MasterCard",
+                        "balance": 5500.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "george.evans@paavu.com": {
+            "profilePicture": "https://example.com/george.jpg",
+            "userEmail": "george.evans@paavu.com",
+            "userName": "George Evans",
+            "password": "",
+            "cpassword": "",
+            "phone": "666-777-8888",
+            "pickUpLocation": "Location Q",
+            "dropLocation": "Location R",
+            "isSocialLogin": true,
+            "email_verified": true,
+            "wallet": {
+                "balance": 900.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn17",
+                        "date": "2024-08-22",
+                        "amount": 90.00,
+                        "type": "debit",
+                        "description": "Purchase at Store Q",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "travel"
+                    },
+                    {
+                        "id": "txn18",
+                        "date": "2024-08-23",
+                        "amount": 400.00,
+                        "type": "credit",
+                        "description": "Refund from Store R",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd9",
+                        "date": "2024-08-24",
+                        "amount": 130.00,
+                        "method": "bank transfer",
+                        "status": "completed",
+                        "description": "Withdrawal to Bank E"
+                    }
+                ],
+                "rewardsPoints": 900,
+                "loyaltyTier": "Platinum",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "9012345678",
+                        "bankName": "Bank I",
+                        "accountType": "savings",
+                        "balance": 5000.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "3333-4444-5555-6666",
+                        "cardType": "credit",
+                        "expiryDate": "08/33",
+                        "issuer": "Discover",
+                        "balance": 6000.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "hannah.james@paavu.com": {
+            "profilePicture": "https://example.com/hannah.jpg",
+            "userEmail": "hannah.james@paavu.com",
+            "userName": "Hannah James",
+            "password": "",
+            "cpassword": "",
+            "phone": "999-000-1111",
+            "pickUpLocation": "Location S",
+            "dropLocation": "Location T",
+            "isSocialLogin": false,
+            "email_verified": false,
+            "wallet": {
+                "balance": 1000.00,
+                "currency": "USD",
+                "transactions": [
+                    {
+                        "id": "txn19",
+                        "date": "2024-08-24",
+                        "amount": 100.00,
+                        "type": "debit",
+                        "description": "Purchase at Store S",
+                        "status": "completed",
+                        "paymentMethod": "credit card",
+                        "category": "furniture"
+                    },
+                    {
+                        "id": "txn20",
+                        "date": "2024-08-25",
+                        "amount": 450.00,
+                        "type": "credit",
+                        "description": "Refund from Store T",
+                        "status": "completed",
+                        "paymentMethod": "bank transfer",
+                        "category": "refund"
+                    }
+                ],
+                "withdrawals": [
+                    {
+                        "id": "wd10",
+                        "date": "2024-08-26",
+                        "amount": 140.00,
+                        "method": "ATM",
+                        "status": "completed",
+                        "description": "Withdrawal from ATM"
+                    }
+                ],
+                "rewardsPoints": 1000,
+                "loyaltyTier": "Gold",
+                "linkedBankAccounts": [
+                    {
+                        "accountNumber": "0123456789",
+                        "bankName": "Bank J",
+                        "accountType": "checking",
+                        "balance": 5500.00,
+                        "currency": "USD"
+                    }
+                ],
+                "linkedCards": [
+                    {
+                        "cardNumber": "7777-8888-9999-0000",
+                        "cardType": "debit",
+                        "expiryDate": "09/34",
+                        "issuer": "American Express",
+                        "balance": 6500.00,
+                        "currency": "USD"
+                    }
+                ]
+            }
+        }
+    }
+]
